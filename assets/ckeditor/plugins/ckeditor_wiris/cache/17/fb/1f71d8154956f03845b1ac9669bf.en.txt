@@ -1,0 +1,1 @@
+{"result":{"text":"begin mathsize 48px style 23 cross times 22 space equals end style"},"status":"ok"}

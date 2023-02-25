@@ -1,0 +1,1 @@
+{"result":{"text":"left parenthesis a to the power of blank space plus space b to the power of blank right parenthesis cubed space equals space"},"status":"ok"}

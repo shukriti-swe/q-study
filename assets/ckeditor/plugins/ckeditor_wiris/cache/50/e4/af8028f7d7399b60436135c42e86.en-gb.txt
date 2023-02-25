@@ -1,0 +1,1 @@
+{"result":{"text":"begin mathsize 28px style 7 cross times 4 less than square cross times 3 end style"},"status":"ok"}

@@ -1,0 +1,24 @@
+
+/* 01. Home
+   ==================================== */
+header .menu a {
+    color: #ffffff;
+}
+header .menu li:before {
+  background-color: rgba(119, 130, 170, 0.2);
+}
+header .button-header .custom-btn {
+  background: #0479ec none;
+  border-radius: 7px;
+  box-shadow: 1px 1px 11px rgba(98, 129, 157, 0.4);
+}
+header .button-header .custom-btn.login {
+  color: #7782aa;
+  box-shadow: none;
+  background-color: transparent;
+}
+header .button-header .custom-btn.login:hover {
+  color: #7782aa;
+  background-color: transparent;
+}
+

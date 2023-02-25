@@ -1,0 +1,1 @@
+{"result":{"text":"x square root of 2 space space plus space b 2 over 3"},"status":"ok"}

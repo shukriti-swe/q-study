@@ -1,0 +1,1 @@
+{"result":{"text":"begin mathsize 20px style open square brackets 6 plus open curly brackets 12 cross times open parentheses 2 plus 3 close parentheses cubed divided by 25 plus 4 minus 10 close curly brackets close square brackets end style"},"status":"ok"}

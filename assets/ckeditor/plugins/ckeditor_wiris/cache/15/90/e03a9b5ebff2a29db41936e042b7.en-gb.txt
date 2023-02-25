@@ -1,0 +1,1 @@
+{"result":{"text":"begin mathsize 20px style a squared plus b squared plus c squared plus 2 a b plus 2 b c minus 2 c a end style"},"status":"ok"}

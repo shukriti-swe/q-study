@@ -1,0 +1,1 @@
+{"result":{"text":"left square bracket 7 plus left curly bracket 12 cross times 5 plus 4 minus 6 right curly bracket right square bracket"},"status":"ok"}

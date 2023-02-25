@@ -1,0 +1,1 @@
+{"result":{"text":"begin mathsize 24px style 4 cross times _ _ equals 36 equals 6 cross times _ _ end style"},"status":"ok"}

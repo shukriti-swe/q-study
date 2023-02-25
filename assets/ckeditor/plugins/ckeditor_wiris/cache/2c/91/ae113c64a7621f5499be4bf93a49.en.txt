@@ -1,0 +1,1 @@
+{"result":{"text":"a squared plus-or-minus b to the power of blank"},"status":"ok"}

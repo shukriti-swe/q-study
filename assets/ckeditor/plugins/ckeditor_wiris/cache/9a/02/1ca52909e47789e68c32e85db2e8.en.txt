@@ -1,0 +1,1 @@
+{"result":{"text":"c to the power of 34"},"status":"ok"}

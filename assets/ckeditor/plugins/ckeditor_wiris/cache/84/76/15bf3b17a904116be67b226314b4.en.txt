@@ -1,0 +1,1 @@
+{"result":{"text":"a squared space plus space 2 a b space plus space b squared"},"status":"ok"}

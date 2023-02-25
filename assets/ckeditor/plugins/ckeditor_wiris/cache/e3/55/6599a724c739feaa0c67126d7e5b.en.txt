@@ -1,0 +1,1 @@
+{"result":{"text":"square root of 55 to the power of 5 end root"},"status":"ok"}

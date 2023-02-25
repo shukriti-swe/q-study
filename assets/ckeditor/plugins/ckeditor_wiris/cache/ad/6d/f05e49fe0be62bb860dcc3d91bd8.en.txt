@@ -1,0 +1,1 @@
+{"result":{"text":"b cubed"},"status":"ok"}

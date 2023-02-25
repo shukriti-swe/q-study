@@ -1,0 +1,1 @@
+{"result":{"text":"begin mathsize 28px style 30 divided by _ _ equals 5 cross times 2 end style"},"status":"ok"}

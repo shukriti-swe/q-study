@@ -1,0 +1,1 @@
+{"result":{"text":"w e space k n o w\nS i n space alpha space equals fraction numerator O p p o s i t e over denominator h y p o t e n u s e end fraction"},"status":"ok"}

@@ -1,0 +1,1 @@
+{"result":{"text":"63 divided by square equals 7"},"status":"ok"}

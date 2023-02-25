@@ -1,0 +1,3949 @@
+<style>
+   .ss_s_b_main {
+    padding: 10px;
+    overflow: inherit;
+   }
+   .rs_word_limt .top_word_limt>div {
+      flex-basis: 0;
+      -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+      flex-grow: 1;
+      max-width: 100%;
+   }
+
+   .tutor_ans_modal {
+      max-height: 300px;
+      overflow-y: auto;
+   }
+
+   .edit-card {
+      position: relative;
+   }
+
+   .edit-card::after {
+      content: '';
+      height: 5px;
+      width: 80%;
+      background-color: #337bbc;
+      position: absolute;
+      left: 5px;
+      bottom: 3.5px;
+   }
+
+   .b-btn {
+      display: inline-block;
+   }
+
+   @media only screen and (min-width:768px) and (max-width:1023px) {
+      .rs_word_limt .top_word_limt>div {
+         font-size: 9px;
+      }
+   }
+
+   .workout_menu ul li {
+      display: inline-block;
+
+      margin-right: 5px;
+   }
+
+   .ss_timer {
+      margin-left: 5px;
+      display: inline-block;
+      background: #eeeef0;
+      border: 0;
+      min-width: 110px;
+      text-align: center;
+   }
+
+   .workout_menu img.calculator-trigger {
+      margin-top: 0;
+      margin-bottom: 0;
+      width: 30px;
+      height: 39px;
+   }
+   .hover_action{
+      position: relative;
+   }
+   .hover_action .tooltiptext {
+    visibility: hidden;
+    width: 52px;
+    background-color: #dee4f1;
+    color: black;
+    border: 2px solid #addaff;
+    text-align: center;
+    border-radius: 4px;
+    padding: 4px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 115%;
+    left: 125%;
+    margin-left: -58px;
+
+   }
+
+   .hover_action:hover .tooltiptext {
+     visibility: visible !important;
+   }
+
+   .st_hover_action{
+      position: relative;
+   }
+   .idea_table td {
+      text-align: left;
+      font-size: 18px;
+      padding-right: 10px;
+   }
+
+   .idea_table {
+      margin: auto;
+   }
+
+   .idea_box {
+      width: 800px;
+      margin: 30px auto;
+   }
+
+   .exciting_box {
+      width: 80%;
+      margin: auto;
+      width: 80%;
+      margin: auto;
+      background-color: #00a2e8;
+      padding: 15px;
+      border-radius: 12px;
+   }
+
+   .exciting_box p {
+      color: white;
+      font-size: 16px;
+   }
+
+   .idea_quiz_box {
+      width: 1000px;
+      margin: 30px auto;
+   }
+
+   /* Hide the browser's default radio button */
+   .custom_radio input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+   }
+
+   /* Create a custom radio button */
+   .checkmark {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 24px;
+      width: 24px;
+      background-color: #fff;
+      border-radius: 50%;
+      border: 2px solid #eee;
+   }
+
+   /* On mouse-over, add a grey background color */
+   .custom_radio:hover input~.checkmark {
+      background-color: #fff;
+      border: 2px solid #eee;
+   }
+
+   /* When the radio button is checked, add a blue background */
+   .custom_radio input:checked~.checkmark {
+      background-color: #fff;
+      border: 2px solid #ccc;
+   }
+
+   /* Create the indicator (the dot/circle - hidden when not checked) */
+   .checkmark:after {
+      content: "";
+      position: absolute;
+      display: none;
+   }
+
+   /* Show the indicator (dot/circle) when checked */
+   .custom_radio input:checked~.checkmark:after {
+      display: block;
+   }
+
+   /* Style the indicator (dot/circle) */
+   .custom_radio .checkmark:after {
+      top: 2px;
+      left: 2px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #2196F3;
+   }
+   .student_idea_ans:hover .view_student_idea {
+      background-color:#ffbd0e !important;
+   }
+
+   .student_idea_ans:hover .st_tooltiptext {
+      visibility: visible !important;
+      visibility: hidden;
+      width: 60px;
+      background-color: #dee4f1;
+      color: black;
+      border: 2px solid #addaff;
+      text-align: center;
+      border-radius: 4px;
+      padding: 4px 0;
+      z-index: 1;
+      bottom: 110%;
+      left: 103%;
+      margin-left: -58px;
+   }
+   .tutor_idea_ans:hover .view_tutor_idea {
+      background-color:#ffbd0e !important;
+   }
+   .tutor_idea_ans:hover .tooltiptext {
+      visibility: visible !important;
+      visibility: hidden;
+      width: 60px;
+      background-color: #dee4f1;
+      color: black;
+      border: 2px solid #addaff;
+      text-align: center;
+      border-radius: 4px;
+      padding: 4px 0;
+      z-index: 1;
+      bottom: 110%;
+      left: 103%;
+      margin-left: -61px;
+   }
+
+</style>
+
+<?php
+   // echo "<pre>"; print_r($idea_info); die();
+?>
+<input type="hidden" id="student_page_index" value="1">
+<input type="hidden" id="tutor_page_index" value="1">
+
+<div class="" style="margin-left: 15px;">
+   <div class="row">
+      <div class="col-md-12">
+         <div class="ss_student_board">
+            <div class="ss_s_b_top">
+               <div class="ss_index_menu ">
+                  <a href="#">Details</a>
+               </div>
+               <div class="col-sm-6 ss_next_pre_top_menu">
+                  <a class="btn btn_next" href="<?php echo base_url('Admin/idea_create_student_report') ?>">
+                     Workout <img src="assets/images/icon_draw.png">
+                  </a>
+               </div>
+            </div>
+            <div class="container-fluid">
+               <div class="row">
+                  <div class="ss_s_b_main" style="min-height: 100vh">
+                     <div class="col-sm-7">
+                        <div class="workout_menu" style=" padding-right: 15px;">
+                           <ul>
+
+                              <li><a style="cursor:pointer;padding: 8px 7px;" id="show_question"> <img src="assets/images/icon_draw.png" /> Instruction </a></li>
+
+                              <?php if ($idea_info[0]['large_ques_body'] != '') { ?>
+                                 <li><a style="cursor:pointer;padding: 8px 7px;" id="detail_question">Detail Question </a></li>
+                              <?php } ?>
+
+                              <?php if ($idea_info[0]['large_question_allow'] != 0) { ?>
+                                 <li><a style="cursor:pointer" id="show_questions"> Question(Click here) </a></li>
+                              <?php } ?>
+
+                              <!-- <li><a  href="javascript:;"  data-toggle="modal" data-target="#show_question_idea"> Idea 1</a></li> -->
+
+                              <?php
+
+                              if ($idea_info[0]['allow_idea'] == 1) {
+                                 $j = 1;
+                                
+                              ?>
+                                 <?php $k = 1;
+                                 foreach ($student_ideas as $student_idea) { ?>
+                                    <li style="position:relative;<?php if($k>2){echo "display:none";}?>" class="student_idea_ans student_idea<?=$k?>">
+                                    <span class="st_tooltiptext" style="visibility: hidden;position: absolute;">Student</span>
+                                    <a class="view_student_idea idea_start_action" style="background: white; color:black;padding: 5px;border: 1px solid #ddd7d7;" href="javascript:;" data-index="<?= $student_idea['user_id']; ?>" data-question="<?=$student_idea['question_id'];?>" data-idea="<?= $student_idea['id']; ?>"><img src="assets/images/hand_with_pen_icon.png" class="" style="height:25px;margin-left: 10px;"><br>Idea-<?= $k; ?></a></li>
+                                 <?php $k++;
+                                 } ?>
+
+                                 
+                                 <div class="idea_start_action"><a style="cursor:pointer;" id="student_right_menu"><img src="assets/images/icon_a_left.png"></a></div>
+                                 <div class="idea_start_action"><a style="cursor:pointer;margin-right:5px;" id="student_left_menu"><img src="assets/images/icon_a_right.png"></a></div>
+
+                                 <?php $n = 1;
+                                 foreach ($tutor_ideas as $tutor_idea) { ?>
+                                    <li style="position:relative;<?php if($n>2){echo "display:none";}?>" class="tutor_idea_ans tutor_idea<?=$n?>"><span class="tooltiptext" style="visibility: hidden;position:absolute;">Tutor</span><a class="view_tutor_idea idea_start_action" style="background: white; color:black;border: 1px solid #ddd7d7;padding: 5px;" href="javascript:;" data-index="<?= $tutor_idea['user_id']; ?>" data-question="<?=$tutor_idea['question_id'];?>" data-idea="<?= $tutor_idea['id']; ?>"><img src="assets/images/hand_with_pen_icon.png" class="" style="height:25px;margin-left: 10px;"><br>Idea-<?= $n; ?></a></li>
+                                 <?php $n++;
+                                 } ?>
+
+                                 <div class="idea_start_action"><a style="cursor:pointer;" id="tutor_right_menu"><img src="assets/images/icon_a_left.png"></a></div>
+                                 <div class="idea_start_action"><a style="cursor:pointer;" id="tutor_left_menu"><img src="assets/images/icon_a_right.png"></a></div>
+                              <?php } ?>
+                           </ul>
+                        </div>
+                        <div class="top_textprev">
+
+
+
+                           <?php
+
+                           date_default_timezone_set($this->site_user_data['zone_name']);
+                           $module_time = time();
+
+                           $hour = 0;
+                           $minute = 0;
+                           $second = 0;
+                           if (is_numeric($idea_info[0]['time_hour'])) {
+                              $hour = $idea_info[0]['time_hour'];
+                           }
+                           if (is_numeric($idea_info[0]['time_min'])) {
+                              $minute = $idea_info[0]['time_min'];
+                           }
+                           if (is_numeric($idea_info[0]['time_sec'])) {
+                              $second = $idea_info[0]['time_sec'];
+                           }
+
+                           $question_time_limit = $hour . ':' . $minute . ':' . $second;
+
+                           $question_time_in_second = ($hour * 3600) + ($minute * 60) + $second;
+
+
+                           ?>
+                           <?php if ($idea_info[0]['shot_question_title'] != '') { ?>
+
+                           <?php }
+
+                           if ($idea_info[0]['short_ques_body'] != '') { ?>
+                              <p>
+                                 <?php
+                                 $text = $idea_info[0]['short_ques_body'];
+                                 $target = "Requirement :";
+                                 $result = strstr($text, $target);
+                                 $remove_html = strip_tags($result);
+                                 $str = preg_replace("/[^A-Za-z]/", "", $remove_html);
+                                 $character_count = strlen($str);
+                                 if ($character_count < 16) {
+                                    $without_requirement = str_replace("Requirement :", "", $text);
+                                    echo $without_requirement;
+                                 } else {
+                                    echo $text;
+                                 }
+                                 ?>
+                              </p>
+
+                           <?php }
+
+                           if ($idea_info[0]['image_ques_body'] != '') { ?>
+                              <p><?= $idea_info[0]['image_ques_body']; ?></p>
+
+                           <?php } ?>
+
+
+                        </div>
+                        <div class="rs_word_limt">
+                           <div class="top_word_limt">
+                              <div>
+                                 <?php if($idea_info[0]['word_limit'] != 0) : ?>
+                                    <span id="display_count">0</span> &nbsp;Words
+                                 <?php endif; ?>
+
+                                 <input id="total_word" type="hidden" value="">
+
+
+                                 <!-- Time -->
+                                 <input type="hidden" id="exam_end" value="" name="exam_end" />
+                                 <input type="hidden" id="now" value="<?php echo $module_time; ?>" name="now" />
+                                 <input type="hidden" id="optionalTime" value="<?php echo $question_time_in_second; ?>" name="optionalTime" />
+
+                                 <input type="hidden" id="exact_time" value="<?php echo $this->session->userdata('exact_time'); ?>" />
+                              </div>
+
+                              <?php if ($question_time_in_second != 0) {
+                                 if ($idea_info[0]['time_hour'] < 10) {
+                                    $get_hour = "0" . $idea_info[0]['time_hour'];
+                                 } else {
+                                    $get_hour = $idea_info[0]['time_hour'];
+                                 }
+
+                                 if ($idea_info[0]['time_min'] < 10) {
+                                    $get_min = "0" . $idea_info[0]['time_min'];
+                                 } else {
+                                    $get_min = $idea_info[0]['time_min'];
+                                 }
+
+                                 if ($idea_info[0]['time_sec'] < 10) {
+                                    $get_sec = "0" . $idea_info[0]['time_sec'];
+                                 } else {
+                                    $get_sec = $idea_info[0]['time_sec'];
+                                 }
+                                 $time_show = $get_hour . ':' . $get_min . ':' . $get_sec;
+                              ?>
+                                 <div class="" style="text-align: center; margin:auto;">
+                                    <div class="ss_timer" id="demo">
+                                       <h1><?= $time_show; ?></h1>
+                                    </div>
+                                 </div>
+                              <?php } ?>
+
+
+
+
+                              <?php
+                              if ($idea_info[0]['word_limit'] != 0) {
+                              ?>
+                                 <div class="m-auto" style="padding-left: 20px;text-align:right;"><b>Word Limit </b><b class="b-btn"><?= $idea_info[0]['word_limit']; ?></b></div>
+                              <?php } ?>
+
+
+                           </div>
+                           <div class="btm_word_limt">
+                              <div class="content_box_word">
+
+                                 <div class="text-center">
+
+                                    <input id="question_id" type="hidden" name="question_id" value="<?= $idea_info[0]['question_id'] ?>">
+                                    <input id="idea_id" type="hidden" name="idea_id" value="<?= $idea_info[0]['id'] ?>">
+
+                                    <textarea id="word_count" class="form-control preview_main_body mytextarea" name="preview_main_body" onpaste="return false;" onCopy="return false" onCut="return false">
+                                    
+                                    <?php if($idea_info[0]['student_title'] == 1){
+
+                                       if (!empty($idea_info[0]['time_hour']) || !empty($idea_info[0]['time_min']) || !empty($idea_info[0]['time_sec'])) {?>
+                                       <elem id="time_image"><img  class="image-editor" style="padding-left: 20%;" data-height="250" data-width="200" height="179" src="<?= base_url() ?>/assets/images/pv1.jpg" width="281" /></elem>
+
+                                    <?php } }else{
+                                       if($idea_info[0]['add_start_button'] ==1){ ?>
+                                       <elem id="time_image"><img  class="image-editor" style="padding-left: 20%;" data-height="250" data-width="200" height="179" src="<?= base_url() ?>/assets/images/pv1.jpg" width="281" /></elem>
+                                       <?php }}?>
+                                    </textarea>
+
+                                 </div>
+                              </div>
+                              <div class="text-center">
+                                 <?php if ($idea_info[0]['add_start_button'] == 1) { ?>
+                                    <button class="btn btn_next" type="button" id="idea_start">Start</button>
+                                 <?php } ?>
+                                 <button id="answer_matching" class="btn btn_next" type="button">Submit </button>
+                                 <!-- <button id="answer_matching" class="btn btn_next" type="button"  data-toggle="modal" data-target="#alert_times_up">Submit </button>  -->
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-sm-1"></div>
+                     <div class="col-sm-4">
+                        <div class="panel-group" id="raccordion" role="tablist" aria-multiselectable="true">
+                           <div class="panel panel-default">
+                              <div class="panel-heading" role="tab" id="headingOne">
+                                 <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" data-parent="#taccordion" href="#collapsethree" aria-expanded="true" aria-controls="collapseOne">
+                                       <span>Module Name: Every Sector</span></a>
+                                 </h4>
+                              </div>
+                              <div id="collapsethree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                 <div class="panel-body">
+                                    <div class=" ss_module_result">
+                                       <div class="table-responsive">
+                                          <table class="table table-bordered">
+                                             <thead>
+                                                <tr>
+                                                   <th></th>
+                                                   <th>SL</th>
+                                                   <th>Mark</th>
+                                                   <th>Obtained</th>
+                                                   <th>Description</th>
+                                                </tr>
+                                             </thead>
+                                             <tbody>
+                                                <tr>
+                                                   <td>
+                                                      <a href="check_student_copy/194/754/1/2023">
+                                                         <span class="glyphicon glyphicon-ok" style="color: green;"></span>
+                                                      </a>
+                                                   </td>
+                                                   <td style="background-color: #99D9EA;">
+                                                      1
+                                                   </td>
+                                                   <td>
+                                                      25
+                                                   </td>
+                                                   <td>
+                                                      5
+                                                   </td>
+                                                   <!-- obtained -->
+                                                   <td>
+                                                      <a class="text-center" onclick="showModalDes(1);">
+                                                         <img src="assets/images/icon_details.png">
+                                                      </a>
+                                                   </td>
+                                                </tr>
+
+                                             </tbody>
+                                          </table>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <br>
+   <br>
+</div>
+
+<form id="answer_form">
+   <!-- modal idea -->
+   <div class="modal fade ss_modal " tabindex="-1" role="dialog" aria-labelledby="myModalLabel" id="show_question_idea">
+      <!-- Modal -->
+      <div class="modal-dialog" role="document">
+         <div class="modal-content">
+
+
+            <div class="mclose" data-dismiss="modal">x</div>
+
+
+            <div class="btm_word_limt">
+               <div class="content_box_word student_ans_modal">
+                  <p><strong>Here One Example</strong></p>
+                  <p>When meat is usually t----- and juicy, it is easily digested. However, this word is also used to describe a soft-hearted person. For instance, Sam’s mother is always warm and t----- towards him</p>
+                  <p>The meat was so t _ _ _ _ _ that I managed to cut through it very easily.</p>
+               </div>
+               <div class="created_name">
+
+                  <img src="assets/images/icon_created.png"> <a href="javascript:;" id="topicstory"> <u>Topic/Story Created By :</u> </a> &nbsp; <b class="student_name">Lubna </b>
+                  <input type="hidden" id="submited_ans_view_student_id" name="selected_student" value="">
+                  <input type="hidden" id="submited_ans_idea_no" name="selected_student" value="">
+
+               </div>
+
+               <div style="text-align:center;margin:10px 0px;">
+                  <button type="button" id="idea_next_student" class="btn btn_nexts">Next</button>
+               </div>
+
+
+            </div>
+
+
+
+
+         </div>
+      </div>
+   </div>
+   <!-- modal idea show_question_idea  tutor -->
+   <div class="modal fade ss_modal " tabindex="-1" role="dialog" aria-labelledby="myModalLabel" id="show_question_idea_tutor">
+      <!-- Modal -->
+      <div class="modal-dialog" role="document">
+         <div class="modal-content">
+
+
+            <div class="mclose" data-dismiss="modal">x</div>
+
+            <div class="btm_word_limt">
+               <div class="content_box_word tutor_ans_modal">
+                  <p class="idea_preview_ans">When meat is usually t----- and juicy, it is easily digested. However, this word is also used to describe a soft-hearted person. For instance, Sam’s mother is always warm and t----- towards him</p>
+                  <p>The meat was so t _ _ _ _ _ that I managed to cut through it very easily.</p>
+               </div>
+               <div class="created_name">
+                  <img src="assets/images/icon_created.png"> <a href="javascript:;" data-toggle="modal" data-target="#topicstory_tutor"> <u>Topic/Story Created By :</u> </a> &nbsp; <b class="tutor_name">Tutor</b>
+               </div>
+            </div>
+
+
+
+
+         </div>
+      </div>
+   </div>
+
+
+
+
+   <div class="modal fade ss_modal " tabindex="-1" role="dialog" aria-labelledby="myModalLabel" id="show_detail_question">
+      <!-- Modal -->
+      <div class="modal-dialog" role="document">
+         <div class="modal-content">
+
+            <div class="btm_word_limt p-3">
+               <div>
+                  <button type="button" id="close_idea" class=" pull-right" data-dismiss="modal">x</button>
+               </div>
+               <br>
+               <hr>
+               <?= $idea_info[0]['large_ques_body']; ?>
+               <div class="text-center p-3">
+                  <button type="button" id="close_idea" class="btn btn-info pull-right" data-dismiss="modal">Close</button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+
+
+   <!-- modal idea topicstory_tutor -->
+   <div class="modal fade ss_modal " tabindex="-1" role="dialog" aria-labelledby="myModalLabel" id="topicstory_tutor">
+      <!-- Modal -->
+      <div class="modal-dialog" role="document">
+         <div class="modal-content">
+
+
+            <div class="mclose" data-dismiss="modal">x</div>
+
+
+            <div class="btm_word_limt text-center">
+               <input type="hidden" name="pre_idea_no" id="pre_idea_no" value="">
+               <input type="hidden" name="pre_tutor_id" id="pre_tutor_id" value="">
+               <input type="hidden" name="pre_question_id" id="pre_question_id" value="">
+               <input type="hidden" name="pre_module_id" id="pre_module_id" value="">
+               <input type="hidden" name="pre_idea_id" id="pre_idea_id" value="">
+               <p>Tutor(<b class="tutor_name idea_tutor_name_view">name</b>)</p>
+               <div class="idea_title_name">
+               <p><u>Topic/Stoty Title</u></p>
+               <p class="blue tutor_idea_title_view">"New Environment"</p>
+               <p> Created: &nbsp; &nbsp; <span id="tutor_submit_date">06/08/2021</span></p>
+               </div>
+               
+
+               <div class="clik_point"><i class="fa fa-thumbs-up" aria-hidden="true"></i></div>
+
+               <div class="clik_point_detatis_tutor">
+                  <div class="clik_point_detatis">
+                     Total Number Of Like <div class="clik_point">33</i></div>
+                  </div>
+                  <br>
+                  <div class="your_achived_point">
+                     Your Achived points <br>
+                     <button>15</button>
+                  </div>
+               </div>
+
+
+            </div>
+
+
+
+         </div>
+      </div>
+   </div>
+
+   <!-- modal idea profile -->
+   <div class="modal fade ss_modal " tabindex="-1" role="dialog" aria-labelledby="myModalLabel" id="show_question_idea_profile">
+      <!-- Modal -->
+      <div class="modal-dialog" role="document">
+         <div class="modal-content">
+
+
+            <div class="mclose" data-dismiss="modal">x</div>
+            <div class="row">
+               <div class="col-sm-4">
+                  <div class="p-3 profile_left_ida">
+                     <div class="text-center">
+                        <img src="assets/images/pp.jpg">
+                     </div>
+                     <table class="table" border="0">
+                        <tbody>
+                           <tr>
+                              <td>Created</td>
+                              <td>15/08/2021</td>
+                           </tr>
+                           <tr>
+                              <td>Name</td>
+                              <td>Luchi</td>
+                           </tr>
+                           <tr>
+                              <td>Grade/Year</td>
+                              <td>3</td>
+                           </tr>
+                           <tr>
+                              <td>School</td>
+                              <td>Dhaka school</td>
+                           </tr>
+                           <tr>
+                              <td>Country</td>
+                              <td>Austrolia</td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="col-sm-8">
+                  <div class="profile_right_ida">
+                     <div class="welcom_mes">
+                        Welcome! In this exciting section you have the cool opportunity to earn Extra Bonus Points. Put on the teacher’s hat and grade the student’s work below, let’s start!
+                     </div>
+                     <p><u> Topic/Story Title</u></p>
+                     <p class="blue">"New Environment"</p>
+                     <p class="p-3">
+                        Submited by "Linda" <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#user_checks">Check</button> Edited by "Tutor" <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tutor_checks"> Check</button>
+                     </p>
+                  </div>
+
+               </div>
+            </div>
+
+            <div class="row">
+               <div class="col-sm-4">
+                  <div class="your_achived_point">
+                     Your Achived points <br>
+                     <button>15</button>
+                  </div>
+               </div>
+               <div class="col-sm-8">
+                  <div class="profile_right_ida_bottom table-responsive">
+                     <table class="table">
+                        <thead>
+                           <tr>
+                              <th></th>
+                              <th class="red">Poor</th>
+                              <th class="blue">Average</th>
+                              <th class="gold">Good</th>
+                              <th class="green">Very Good</th>
+                              <th class="orange">Excellent!</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr>
+                              <td>Relevance</td>
+                              <td>
+                                 <input type="checkbox" name="">
+                              </td>
+                              <td>
+                                 <input type="checkbox" name="">
+                              </td>
+                              <td>
+                                 <input type="checkbox" name="">
+                              </td>
+                              <td>
+                                 <input type="checkbox" name="">
+                              </td>
+                              <td>
+                                 <input type="checkbox" name="">
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Creativity</td>
+                              <td>
+                                 <input type="checkbox" name="">
+                              </td>
+                              <td>
+                                 <input type="checkbox" name="" checked=""> 4
+                              </td>
+                              <td>
+                                 <input type="checkbox" name="" checked=""> 3
+                              </td>
+                              <td>
+                                 <input type="checkbox" name="">
+                              </td>
+                              <td>
+                                 <input type="checkbox" name="">
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Grammar/Spelling</td>
+                              <td>
+                                 <input type="checkbox" name="">
+                              </td>
+                              <td>
+                                 <input type="checkbox" name="">
+                              </td>
+                              <td>
+                                 <input type="checkbox" name="">
+                              </td>
+                              <td>
+                                 <input type="checkbox" name="" checked=""> 5
+                              </td>
+                              <td>
+                                 <input type="checkbox" name="">
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Vocabulary</td>
+                              <td>
+                                 <input type="checkbox" name="">
+                              </td>
+                              <td>
+                                 <input type="checkbox" name="" checked=""> 3
+                              </td>
+                              <td>
+                                 <input type="checkbox" name="">
+                              </td>
+                              <td>
+                                 <input type="checkbox" name="">
+                              </td>
+                              <td>
+                                 <input type="checkbox" name="">
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Clarity</td>
+                              <td>
+                                 <input type="checkbox" name="">
+                              </td>
+                              <td>
+                                 <input type="checkbox" name="">
+                              </td>
+                              <td>
+                                 <input type="checkbox" name="">
+                              </td>
+                              <td>
+                                 <input type="checkbox" name="">
+                              </td>
+                              <td>
+                                 <input type="checkbox" name="">
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="profile_right_ida">
+                     <p>
+                        Your grade <button type="button" class="btn btn-primary">Check</button> <input type="number" class="form-control w-50" name=""> Tutor Grade <button type="button" class="btn btn-primary">Check</button> <input type="number" class="form-control w-50" name="">
+                     </p>
+                     <div class="text-center">
+                        <br>
+                        <button class="btn btn_next">Submit</button>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+
+         </div>
+      </div>
+   </div>
+
+<div>
+     <input type="hidden" id="student_view_idea_idea_id">
+     <input type="hidden" id="student_view_idea_student_id">
+     <input type="hidden" id="student_view_idea_question_id">
+</div>
+
+   <!-- modal user_checks -->
+   <div class="modal fade ss_modal " tabindex="-1" role="dialog" aria-labelledby="myModalLabel" id="user_checks">
+      <!-- Modal -->
+      <div class="modal-dialog" role="document">
+         <div class="modal-content">
+
+            <div class="mclose" data-dismiss="modal">x</div>
+            <div class="btm_word_limt">
+               <div class="content_box_word">
+                  <p><strong>Here One Example</strong></p>
+                  <p>When meat is usually t----- and juicy, it is easily digested. However, this word is also used to describe a soft-hearted person. For instance, Sam’s mother is always warm and t----- towards him</p>
+                  <p>The meat was so t _ _ _ _ _ that I managed to cut through it very easily.</p>
+               </div>
+
+            </div>
+
+         </div>
+      </div>
+   </div>
+   <!-- modal user_checks -->
+   <div class="modal fade ss_modal " tabindex="-1" role="dialog" aria-labelledby="myModalLabel" id="frist_time_user">
+      <!-- Modal -->
+      <div class="modal-dialog" role="document">
+         <div class="modal-content">
+
+
+            <div class="btm_word_limt p-3">
+               <div>
+                  <button type="button" class="btn btn-profile">Edit</button>
+                  <button type="button" id="close_idea" class="btn btn-info pull-right" data-dismiss="modal">Close</button>
+               </div>
+               <hr>
+               <div class="frist_time_user_mid_con">
+                  <div class="frist_time_user_mid_con_mes">
+                     <strong> Wanna be a superstar?? </strong> Each time you submit a writing task, your
+                     wonderful work is automatically published as a writing suggestion
+                     viewable around the world <a href="#">view more</a>
+                  </div>
+                  <div class="row p-3">
+                     <div class="col-sm-6">
+                        <div class="form-group">
+                           <label>Name</label>
+                           <input type="text" class="form-control" value="Linda" name="">
+                        </div>
+                        <div class="form-group">
+                           <label>School Name <a href="">Optional</a></label>
+                           <input type="text" class="form-control" value="" name="">
+                        </div>
+                        <div class="form-group">
+                           <label>Country</label>
+                           <input type="text" class="form-control" value="Aus" name="">
+                        </div>
+                     </div>
+                     <div class="col-sm-6">
+                        <div class="text-center">
+                           <i class="fa fa-cloud-upload" aria-hidden="true"></i>
+                           <p>Chose Photo to Upload</p>
+                           <p><a href="">(Optional)</a></p>
+                        </div>
+                        <div class="image_box"></div>
+                     </div>
+                  </div>
+               </div>
+               <hr>
+               <div class="text-center p-3">
+                  <button type="submit" class="btn btn_next">Submit & Proceed</button>
+               </div>
+            </div>
+
+         </div>
+      </div>
+   </div>
+
+   <!-- modal tutor_checks -->
+   <div class="modal fade ss_modal " tabindex="-1" role="dialog" aria-labelledby="myModalLabel" id="tutor_checks">
+      <!-- Modal -->
+      <div class="modal-dialog" role="document">
+         <div class="modal-content">
+
+            <div class="mclose" data-dismiss="modal">x</div>
+            <div class="btm_word_limt">
+               <div class="content_box_word">
+                  <div class="row">
+                     <div class="col-sm-8">
+                        <p><strong>Here One Example</strong></p>
+                        <p> When meat is usually t----- and juicy, it is easily digested. However, this word is also used to describe a soft-hearted person. For instance, Sam’s mother is always warm and t----- towards him</p>
+                        <p>The meat was so t _ _ _ _ _ that I managed to cut through it very easily.</p>
+                     </div>
+                     <div class="col-sm-4">
+                        <img src="assets/images/42_Everyday Study.png" class="img-responsive">
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+         </div>
+      </div>
+   </div>
+   <!-- alert_times_up -->
+   <div class="modal fade ss_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" id="alert_times_up">
+      <!-- Modal -->
+      <div class="modal-dialog" role="document">
+         <div class="modal-content">
+
+            <div class="modal-header">
+               <h4>Times Up</h4>
+            </div>
+
+            <div class="modal-body">
+
+               <p>Oops! You’ve lost your paragraph for exceeding your time! You need to re-write from the start.</p>
+
+            </div>
+            <div class="modal-footer">
+               <button type="button" class="btn btn_blue" data-dismiss="modal">Ok</button>
+            </div>
+
+         </div>
+      </div>
+
+   </div>
+   <!-- /////////////// -->
+   <div class="modal fade ss_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" id="idea_save_success">
+      <!-- Modal -->
+      <div style="max-width: 20%;" class="modal-dialog" role="document">
+         <div class="modal-content">
+
+            <div class="modal-header">
+               <h4>Success</h4>
+            </div>
+
+            <div class="modal-body">
+               <p><i class="fa fa-pencil" style="font-size:28px;color:#f5d743;"></i></p>
+               <p>Examiner will scrutinize your answer and get back to you.</p>
+
+            </div>
+            <div class="modal-footer">
+               <button type="button" id="preview_success" class="btn btn_blue" data-dismiss="modal">Ok</button>
+            </div>
+
+         </div>
+      </div>
+   </div>
+
+
+
+   <div class="modal fade ss_modal " tabindex="-1" role="dialog" aria-labelledby="myModalLabel" id="show_question_body">
+      <!-- Modal -->
+      <div class="modal-dialog" role="document">
+         <div class="modal-content">
+
+            <div class="btm_word_limt p-3">
+               <div>
+                  <button type="button" id="close_idea" class=" pull-right" data-dismiss="modal">x</button>
+               </div>
+               <br>
+               <hr>
+               <?= $idea_info[0]['large_ques_body'] ?>
+               <div class="text-center p-3">
+                  <button type="button" id="close_idea" class="btn btn-info pull-right" data-dismiss="modal">Close</button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="modal fade ss_modal " id="idea_title_show" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+         <div class="modal-content">
+
+            <div class="modal-header">
+               <h4>Topic/Story Title</h4>
+            </div>
+
+            <div class="modal-body">
+
+               <div class="d-flex idea_modal_textarea">
+                  <textarea id="idea_title_text_get" class="form-control idea_title_text" name="idea_title_text23"></textarea>
+               </div>
+
+
+
+            </div>
+            <div class="modal-footer">
+               <button type="button" class="btn btn_blue ideabtnclose">save</button>
+            </div>
+
+         </div>
+      </div>
+   </div>
+   <div class="modal fade ss_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" id="alert_times_up">
+      <!-- Modal -->
+      <div class="modal-dialog" role="document">
+         <div class="modal-content">
+
+            <div class="modal-header">
+               <h4>Times Up</h4>
+            </div>
+
+            <div class="modal-body">
+
+               <p>Oops! You’ve lost your paragraph for exceeding your time! You need to re-write from the start.</p>
+
+            </div>
+            <div class="modal-footer">
+               <button type="button" class="btn btn_blue" data-dismiss="modal">Ok</button>
+            </div>
+
+         </div>
+      </div>
+
+   </div>
+
+   <div class="modal fade ss_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" id="total_limit_exceed">
+      <!-- Modal -->
+      <div style="max-width: 20%;" class="modal-dialog" role="document">
+         <div class="modal-content">
+
+            <div class="modal-header">
+               <h4 class="modal-title" id="myModalLabel"></h4>
+            </div>
+
+            <div class="modal-body">
+               <i class="fa fa-pencil" style="font-size:28px;color:#f5d743;"></i>
+               <p>you've already exceeded <b><?= $idea_info[0]['word_limit']; ?></b> word.Please make it <b><?= $idea_info[0]['word_limit']; ?></b> words or bellow and then resubmit.</p>
+
+            </div>
+            <div class="modal-footer">
+               <button type="button" class="btn btn_blue" data-dismiss="modal">Ok</button>
+            </div>
+
+         </div>
+      </div>
+
+   </div>
+
+   <div class="modal fade ss_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" id="low_limit">
+      <!-- Modal -->
+      <div style="max-width: 20%;" class="modal-dialog" role="document">
+         <div class="modal-content">
+            <div class="modal-header">
+               <h4 class="modal-title" id="myModalLabel"> </h4>
+            </div>
+
+            <div class="modal-body">
+               <i class="fa fa-pencil" style="font-size:28px;color:#f5d743;"></i>
+               <p>Oops! you need to have a minimum input of <b id="percent_limit"></b> words and then resubmit.</p>
+
+            </div>
+            <div class="modal-footer">
+               <button type="button" class="btn btn_blue" data-dismiss="modal">Ok</button>
+            </div>
+
+         </div>
+      </div>
+
+   </div>
+
+   <div class="modal fade ss_modal" id="times_up_message" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" style="max-width: 20%;" role="document">
+         <div class="modal-content">
+            <div class="modal-header">
+               <h4 style="text-align:center;" class="modal-title" id="myModalLabel">Times Up</h4>
+            </div>
+            <div class="modal-body row">
+               <i class="fa fa-close" style="font-size:20px;color:red"></i>
+               <!--<span class="ss_extar_top20">Your answer is wrong</span>-->
+               <br>
+               <p>Oops! you've lost your paragraph for exceeding your time! You now need to re-write from the start</p>
+            </div>
+            <div class="modal-footer">
+               <button type="button" id="question_reload" class="btn btn_blue" data-dismiss="modal">close</button>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="modal fade ss_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" id="idea_title_failed">
+      <!-- Modal -->
+      <div style="max-width: 20%; top: 20% !important; transform: translate(-50%, -50%) !important;" class="modal-dialog" role="document">
+         <div class="modal-content">
+
+            <div class="modal-body">
+               <p><i class="fa fa-pencil" style="font-size:28px;color:#f5d743;"></i></p>
+               <p>Please Write Idea title first!!</p>
+
+            </div>
+            <div class="modal-footer">
+               <button type="button" id="preview_success" class="btn btn_blue" data-dismiss="modal">Ok</button>
+            </div>
+
+         </div>
+      </div>
+   </div>
+
+   <div class="modal fade ss_modal" id="others_idea_info" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <!-- Modal -->
+      <div style="max-width: 100%;margin-top:8%;" class="modal-dialog idea_box" role="document">
+         <div class="modal-content">
+
+
+            <div style="padding:10px;" class="btm_word_limt p-3 text-center">
+               <div class="image_box">
+                 
+                  <img src="assets/images/default_user.jpg" alt="User Image" style="width: 125px; height:115px" id="idea_user_image" class="ss_user" />   
+                  
+               </div>
+               <br>
+               <table class="idea_table">
+                  <tr>
+                     <td>Created</td>
+                     <td id="st_sub_idea_created_date"></td>
+                  </tr>
+                  <tr>
+                     <td>Name</td>
+                     <td id="st_sub_idea_name"></td>
+                  </tr>
+                  <tr>
+                     <td>Grade/Year </td>
+                     <td id="st_sub_idea_grade"></td>
+                  </tr>
+                  <tr>
+                     <td>School</td>
+                     <td id="st_sub_idea_school">Test School</td>
+                  </tr>
+                  <tr>
+                     <td>Country</td>
+                     <td id="st_sub_idea_country">Test School</td>
+                  </tr>
+               </table>
+               <br><br>
+               <div>
+                  <!-- <h4>Topic/Story Title</h4> -->
+                  <h6>Idea/Topic/Stoty Title</h6>
+                  <div class="others_idea_info_blue">
+
+                  </div>
+               </div>
+               <br><br>
+               <div class="exciting_box">
+                  <p>Welcome! in the exciting section you have the cool opportunity to earn extra bonus point. Put on the teacher's hat and grade the students work bellow, let's start!</p>
+               </div>
+
+               <br>
+               <div style="text-align:center;">
+                  <button id="start_idea_quiz" class="btn btn_next" type="button">Start</button>
+               </div>
+
+            </div>
+            <div>
+
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="modal fade ss_modal" id="idea_quiz_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <!-- Modal -->
+      <div style="max-width: 100%;margin-top:8%;" class="modal-dialog idea_quiz_box" role="document" style="overflow-y: initial !important">
+         <div class="modal-content">
+            <div class="modal-body" style="height: 80vh; overflow-y: auto;">
+               <div class="mclose" data-dismiss="modal">x</div>
+               <div style="padding:10px;" class="btm_word_limt p-3 text-center">
+                  <div class="row">
+                     <div class="col-md-5" style="border:1px solid #d4d3d3;padding:2px;">
+                        <div class="row">
+                           <div class="col-md-4">
+                              <div class="image_box">
+                                 <img src="assets/images/default_user.jpg" alt="User Image" style="width: 100px; height:70px" class="idea_user_image" class="ss_user" />  
+                              </div>
+                           </div>
+                           <div class="col-md-8">
+                              <table class="idea_table">
+                                 <tr>
+                                    <td>Created</td>
+                                    <td class="st_sub_idea_created_date"></td>
+                                 </tr>
+                                 <tr>
+                                    <td>Name</td>
+                                    <td class="st_sub_idea_name"></td>
+                                 </tr>
+                                 <tr>
+                                    <td>Grade/Year </td>
+                                    <td class="st_sub_idea_grade"></td>
+                                 </tr>
+                                 <tr>
+                                    <td>School</td>
+                                    <td class="st_sub_idea_school">Test School</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Country</td>
+                                    <td class="st_sub_idea_country">Test School</td>
+                                 </tr>
+                              </table>
+                           </div>
+
+                           <div class="col-md-4">
+                              
+                           </div>
+                           <div class="col-md-8">
+                              <br>
+                              <p style="text-align:left;margin-left: 15px;"><b>Idea/Topic/Story Title</b></p>
+                              <p style="text-align:left;margin-left: 15px;" id="student_idea_title"></p>
+                           </div>
+
+                        </div>
+                     </div>
+                     <div class="col-md-4">
+                        <h6>Write about the topic bellow:</h6>
+
+                        <div class="idea_quiz_modal_blue">
+
+                        </div>
+                     </div>
+
+                     <div class="col-md-3">
+
+                     </div>
+                  </div>
+
+                  <br>
+                  <div class="row">
+                     <div class="col-md-8"></div>
+                     <div class="col-md-4" style="display: flex; justify-content: space-between">
+
+                        <button type="button" class="btn">instruction time</button>
+
+                        <div class="your_point_show">Your Point :
+                           <span class="total_point_count btn" style="background-color: red;color: #fff;width: 26%;">0</span>
+                        </div>
+
+                     </div>
+                  </div>
+               </div>
+               <div class="row" style="display: flex;">
+                  <div class="col-md-6 tutor_idea_text" style="border: 1px solid #82bae6;padding: 5px;box-shadow: 0px 0px 4px #82bae6;border-radius: 5px;">
+
+                  </div>
+                  <div class="col-md-6 creative_sentense_paragraph_show" style="border:1px solid #82bae6;padding: 5px;box-shadow: 0px 0px 4px #82bae6;border-radius: 5px;">
+
+                  </div>
+
+                  <div class="col-md-6 conclusion_sentense_paragraph_show" style="border:1px solid #82bae6;padding: 5px;box-shadow: 0px 0px 4px #82bae6;border-radius: 5px;">
+
+                  </div>
+
+                  <div class="col-md-6 common_answer_paragraph" style="border:1px solid #82bae6;padding: 5px;box-shadow: 0px 0px 4px #82bae6;border-radius: 5px;">
+
+                  </div>
+                  <div class="col-md-6 introduction_answer_paragraph" style="border:1px solid #82bae6;padding: 5px;box-shadow: 0px 0px 4px #82bae6;border-radius: 5px;">
+
+                  </div>
+                  <div class="col-md-6 body_answer_paragraph" style="border:1px solid #82bae6;padding: 5px;box-shadow: 0px 0px 4px #82bae6;border-radius: 5px;">
+
+                  </div>
+                 
+                  <div class="col-md-6" style="border:1px solid #82bae6;padding:5px;margin-left:3%;overflow: hidden;box-shadow: 0px 0px 4px #82bae6;border-radius: 5px;">
+
+                     <div class="with_option">
+                        <br>
+                        <div class="content_Show"">
+                           <p class=" rainy_day_hide" style="font-weight: bold;margin-left:30px;">How do You think lindas story title ("Rainy day") Which of the following sentences will you choose for linda</p>
+                           <p class="choose_word" style="font-weight: bold;margin-left:30px; display:none">Click and choose the words from Linda's story which was mis spelled.</p>
+                           <p class="heading_creative_sentense_show" style="font-weight: bold;margin-left:30px;">Click and choose two sentences from Linda's story which was creative.</p>
+                           <p class="heading_conclusion_sentense_show" style="font-weight: bold;margin-left:30px;">Click and choose the "Conclusion" from the Linda's story.</p>
+                           <p class="heading_checkbox_show" style="font-weight: bold;margin-left:30px;">How do you think about Linda's Conclusion?</p>
+                           <p class="heading_introduction_paragraph" style="font-weight: bold;margin-left:30px;">Click and choose the "Introduction" from the Linda's story.</p>
+                           <p class="heading_checkbox_introduction" style="font-weight: bold;margin-left:30px;">How do you think about Linda's Introduction?</p>
+                           <p class="heading_body_paragraph" style="font-weight: bold;margin-left:30px;">Click and choose the "Body Paragraph" from the Linda's story.</p>
+                           <p class="heading_checkbox_body" style="font-weight: bold;margin-left:30px;">How do you think about Linda's Body Paragraph?</p>
+                        </div>
+                        <br>
+
+                        <div style="width:100%;padding-left:30px;position:relative;">
+
+                           <div class="ans_submit_first_box">
+                              <div class="ans_show" style="min-height:150px">
+                                 <div style="width:100%;padding-left:30px;position:relative;">
+                                    <div style="margin-top: 15px;">
+                                       <label class="custom_radio"><span class="option_no all_options">Not Bad</span>
+                                          <input type="radio" class="radio_ans" id="html" name="radio_ans" value="1">
+                                          <span class="checkmark "></span>
+                                       </label>
+                                    </div>
+                                 </div>
+                                 <div style="width:100%;padding-left:30px;position:relative;">
+                                    <div style="margin-top: 15px;">
+                                       <label class="custom_radio"><span class="option_no all_options">Not Related</span>
+                                          <input type="radio" class="radio_ans" id="html" name="radio_ans" value="2">
+                                          <span class="checkmark "></span>
+                                       </label>
+                                    </div>
+                                 </div>
+                                 <div style="width:100%;padding-left:30px;position:relative;">
+                                    <div style="margin-top: 15px;">
+                                       <label class="custom_radio"><span class="option_no all_options">It was great title</span>
+                                          <input type="radio" class="radio_ans" id="html" name="radio_ans" value="3">
+                                          <span class="checkmark "></span>
+                                       </label>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="row text-left">
+                                 <input type="hidden" value="<?php echo $question_id; ?>" name="question_id" id="question_id">
+                                 <a href="javascript:;" type="button" class="btn btn-primary ans_submit" style="background-color: #bee131;color:#000; margin-top:30px">submit</a>
+                              </div>
+                           </div>
+
+                           <div class="row">
+
+                              <div class="ans_submit_second_box" style="display: none;">
+
+                                 <div class="col-md-6">
+
+                                    <p>Your Grading</p>
+
+                                    <div style="width:100%;padding-left:30px;position:relative;">
+                                       <div style="margin-top: 15px;">
+                                          <label class="custom_radio"><span class="option_no all_options">Not Bad</span>
+                                             <input type="radio" class="student_radio_ans" id="html" name="student_radio_ans" value="1">
+                                             <span class="checkmark "></span>
+                                          </label>
+                                       </div>
+                                    </div>
+                                    <div style="width:100%;padding-left:30px;position:relative;">
+                                       <div style="margin-top: 15px;">
+                                          <label class="custom_radio"><span class="option_no all_options">Not Related</span>
+                                             <input type="radio" class="student_radio_ans" id="html" name="student_radio_ans" value="2">
+                                             <span class="checkmark "></span>
+                                          </label>
+                                       </div>
+                                    </div>
+                                    <div style="width:100%;padding-left:30px;position:relative;">
+                                       <div style="margin-top: 15px;">
+                                          <label class="custom_radio"><span class="option_no all_options">It was great title</span>
+                                             <input type="radio" class="student_radio_ans" id="html" name="student_radio_ans" value="3">
+                                             <span class="checkmark "></span>
+                                          </label>
+                                       </div>
+                                    </div>
+
+                                 </div>
+
+                                 <div class="col-md-6">
+
+                                    <p>Teachers Grading</p>
+
+                                    <div style="width:100%;padding-left:30px;position:relative;">
+                                       <div style="margin-top: 15px;">
+                                          <label class="custom_radio"><span class="option_no all_options">Not Bad</span>
+                                             <input type="radio" class="teacher_radio_ans0" id="html" name="teacher_radio_ans" value="1">
+                                             <span class="checkmark "></span>
+                                          </label>
+                                       </div>
+                                    </div>
+                                    <div style="width:100%;padding-left:30px;position:relative;">
+                                       <div style="margin-top: 15px;">
+                                          <label class="custom_radio"><span class="option_no all_options">Not Related</span>
+                                             <input type="radio" class="teacher_radio_ans1" id="html" name="teacher_radio_ans" value="2">
+                                             <span class="checkmark "></span>
+                                          </label>
+                                       </div>
+                                    </div>
+                                    <div style="width:100%;padding-left:30px;position:relative;">
+                                       <div style="margin-top: 15px;">
+                                          <label class="custom_radio"><span class="option_no all_options">It was great title</span>
+                                             <input type="radio" class="teacher_radio_ans2" id="html" name="teacher_radio_ans" value="3" checked>
+                                             <span class="checkmark "></span>
+                                          </label>
+                                       </div>
+                                    </div>
+
+                                 </div>
+
+
+                                 <div class="row text-left">
+                                    <input type="hidden" value="<?php echo $question_id; ?>" name="question_id" id="question_id">
+                                    <a href="javascript:;" type="button" class="btn btn-primary ans_submit_next" style="background-color: #bee131;color:#000; margin-top:30px">Next</a>
+                                 </div>
+
+
+                              </div>
+                              <div class="ans_submit_miss_spelled" style="display:none;">
+                                 <div class="choosen_word_show" style="min-height:150px;">
+
+                                 </div>
+                                 <a href="javascript:;" type="button" class="btn btn-primary ans_submit_spelled" style="background-color: #bee131;color:#000; margin-top:30px;">submit</a>
+                                 <a href="javascript:;" type="button" class="btn btn-primary next_submit_spelled" style="background-color: #FFC90E;color:#000; margin-top:30px;">Next</a>
+                              </div>
+                              <div class="chose_creative_sentense" style="display:none;">
+                                 <div class="chose_creative_sentense_show" style="min-height:150px;">
+
+                                 </div>
+                                 <a href="javascript:;" type="button" class="btn btn-primary ans_creative_question" style="background-color: #bee131;color:#000; margin-top:30px;">submit<a>
+                                       <a href="javascript:;" type="button" class="btn btn-primary next_creative_sentence_button" style="background-color: #FFC90E;color:#000; margin-top:30px;">Next</a>
+                              </div>
+
+                              <div class="chose_conclusion_sentense" style="display:none;padding-right: 14px;">
+                                 <div class="chose_conclusion_sentense_show" style="min-height:150px;">
+
+                                 </div>
+                                 <a href="javascript:;" type="button" class="btn btn-primary ans_conclusion_question" style="background-color: #bee131;color:#000; margin-top:30px">submit<a>
+
+                                       <a href="javascript:;" type="button" class="btn btn-primary next_conclusion_sentence_button" style="background-color: #FFC90E;color:#000; margin-top:30px;">Next</a>
+                              </div>
+
+                              <div class="conclusion_checkbox" style="padding-right: 14px;">
+                                 <div class="conclusion_checkbox_show col-md-6" style="min-height:150px;">
+                                    <P>Your Grading:</P>             
+                                    <div style="width:100%;padding-left:30px;position:relative;">
+                                       <div style="margin-top: 15px;">
+                                          <label class="custom_radio"><span class="option_no all_options">Not Bad</span>
+                                             <input type="radio" class="conclusion_radio" id="html" name="radio_ans" value="1">
+                                             <span class="checkmark "></span>
+                                          </label>
+                                       </div>
+                                    </div>
+                                    <div style="width:100%;padding-left:30px;position:relative;">
+                                       <div style="margin-top: 15px;">
+                                          <label class="custom_radio"><span class="option_no all_options">Not Related</span>
+                                             <input type="radio" class="conclusion_radio" id="html" name="radio_ans" value="2">
+                                             <span class="checkmark "></span>
+                                          </label>
+                                       </div>
+                                    </div>
+                                    <div style="width:100%;padding-left:30px;position:relative;">
+                                       <div style="margin-top: 15px;">
+                                          <label class="custom_radio"><span class="option_no all_options">It was great conclusion</span>
+                                             <input type="radio" class="conclusion_radio" id="html" name="radio_ans" value="3">
+                                             <span class="checkmark "></span>
+                                          </label>
+                                       </div>
+                                    </div>
+                                    <a href="javascript:;" type="button" class="btn btn-primary ans_conclusion_comment" style="background-color: #bee131;color:#000; margin-top:30px">Submit</a>
+
+                                 </div>
+                                 <div class="conclusion_checkbox_show_teacher col-md-6" style="min-height:150px;">
+                                    <P>Teacher Grading:</P>             
+                                    <div style="width:100%;padding-left:30px;position:relative;">
+                                       <div style="margin-top: 15px;">
+                                          <label class="custom_radio"><span class="option_no all_options">Not Bad</span>
+                                             <input type="radio" class="conclusion_checkbox_ans1" id="html" name="radio_ans_new" value="1" disabled>
+                                             <span class="checkmark "></span>
+                                          </label>
+                                       </div>
+                                    </div>
+                                    <div style="width:100%;padding-left:30px;position:relative;">
+                                       <div style="margin-top: 15px;">
+                                          <label class="custom_radio"><span class="option_no all_options">Not Related</span>
+                                             <input type="radio" class="conclusion_checkbox_ans2" id="html" name="radio_ans_new" value="2" disabled>
+                                             <span class="checkmark "></span>
+                                          </label>
+                                       </div>
+                                    </div>
+                                    <div style="width:100%;padding-left:30px;position:relative;">
+                                       <div style="margin-top: 15px;">
+                                          <label class="custom_radio"><span class="option_no all_options">It was great conclusion</span>
+                                             <input type="radio" class="conclusion_checkbox_ans3" id="html" name="radio_ans_new" value="3" disabled>
+                                             <span class="checkmark"></span>
+                                          </label>
+                                       </div>
+                                    </div>
+
+                                 </div>               
+                                  
+                                
+                                 <a href="javascript:;" type="button" class="btn btn-primary ans_conclusion_next" style="background-color: #bee131;color:#000; margin-top:30px">Next<a>                
+                              </div>
+
+                              <div class="introduction_paragraph" style="display:none;">
+                                 <div class="introduction_paragraph_show" style="min-height:150px;">
+
+                                 </div>
+                                 <a href="javascript:;" type="button" class="btn btn-primary introduction_paragraph_submit" style="background-color: #bee131;color:#000; margin-top:30px;">submit<a>
+                                 <a href="javascript:;" type="button" class="btn btn-primary ans_introduction_next" style="background-color: #bee131;color:#000; margin-top:30px">Next</a>    
+                              </div>
+
+                              <div class="introduction_checkbox" style="padding-right: 14px;">
+                                 <div class="introduction_checkbox_show col-md-6" style="min-height:150px;">
+                                    <P>Your Grading:</P>             
+                                    <div style="width:100%;padding-left:30px;position:relative;">
+                                       <div style="margin-top: 15px;">
+                                          <label class="custom_radio"><span class="option_no all_options">Not Bad</span>
+                                             <input type="radio" class="introduction_radio" id="html" name="radio_ans" value="1">
+                                             <span class="checkmark "></span>
+                                          </label>
+                                       </div>
+                                    </div>
+                                    <div style="width:100%;padding-left:30px;position:relative;">
+                                       <div style="margin-top: 15px;">
+                                          <label class="custom_radio"><span class="option_no all_options">Not Related</span>
+                                             <input type="radio" class="introduction_radio" id="html" name="radio_ans" value="2">
+                                             <span class="checkmark "></span>
+                                          </label>
+                                       </div>
+                                    </div>
+                                    <div style="width:100%;padding-left:30px;position:relative;">
+                                       <div style="margin-top: 15px;">
+                                          <label class="custom_radio"><span class="option_no all_options">It was great Introduction</span>
+                                             <input type="radio" class="introduction_radio" id="html" name="radio_ans" value="3">
+                                             <span class="checkmark "></span>
+                                          </label>
+                                       </div>
+                                    </div>
+                                    <a href="javascript:;" type="button" class="btn btn-primary ans_introduction_comment" style="background-color: #bee131;color:#000; margin-top:30px">Submit</a>
+
+                                 </div>
+                                 <div class="introduction_checkbox_show_teacher col-md-6" style="min-height:150px;">
+                                    <P>Teacher Grading:</P>             
+                                    <div style="width:100%;padding-left:30px;position:relative;">
+                                       <div style="margin-top: 15px;">
+                                          <label class="custom_radio"><span class="option_no all_options">Not Bad</span>
+                                             <input type="radio" class="introduction_checkbox_ans1" id="html" name="radio_ans_introduction" value="1" disabled>
+                                             <span class="checkmark "></span>
+                                          </label>
+                                       </div>
+                                    </div>
+                                    <div style="width:100%;padding-left:30px;position:relative;">
+                                       <div style="margin-top: 15px;">
+                                          <label class="custom_radio"><span class="option_no all_options">Not Related</span>
+                                             <input type="radio" class="introduction_checkbox_ans2" id="html" name="radio_ans_introduction" value="2" disabled>
+                                             <span class="checkmark "></span>
+                                          </label>
+                                       </div>
+                                    </div>
+                                    <div style="width:100%;padding-left:30px;position:relative;">
+                                       <div style="margin-top: 15px;">
+                                          <label class="custom_radio"><span class="option_no all_options">It was great Introduction</span>
+                                             <input type="radio" class="introduction_checkbox_ans3" id="html" name="radio_ans_introduction" value="3" disabled>
+                                             <span class="checkmark"></span>
+                                          </label>
+                                       </div>
+                                    </div>
+
+                                 </div>               
+                                  
+                                
+                                 <a href="javascript:;" type="button" class="btn btn-primary ans_introduction_next_new" style="background-color: #bee131;color:#000; margin-top:30px">Next</a>                
+                              </div>
+
+                              <div class="body_paragraph" style="display:none;">
+                                 <div class="body_paragraph_show" style="min-height:150px;">
+
+                                 </div>
+                                 <a href="javascript:;" type="button" class="btn btn-primary body_paragraph_submit" style="background-color: #bee131;color:#000; margin-top:30px;">submit<a>
+                                 <a href="javascript:;" type="button" class="btn btn-primary ans_body_next" style="background-color: #bee131;color:#000; margin-top:30px">Next</a>    
+                              </div>
+
+                              <div class="body_paragraph_checkbox" style="padding-right: 14px;">
+                                 <div class="body_paragraph_checkbox_show col-md-6" style="min-height:150px;">
+                                    <P>Your Grading:</P>             
+                                    <div style="width:100%;padding-left:30px;position:relative;">
+                                       <div style="margin-top: 15px;">
+                                          <label class="custom_radio"><span class="option_no all_options">Not Bad</span>
+                                             <input type="radio" class="body_radio" id="html" name="radio_ans" value="1">
+                                             <span class="checkmark "></span>
+                                          </label>
+                                       </div>
+                                    </div>
+                                    <div style="width:100%;padding-left:30px;position:relative;">
+                                       <div style="margin-top: 15px;">
+                                          <label class="custom_radio"><span class="option_no all_options">Not Related</span>
+                                             <input type="radio" class="body_radio" id="html" name="radio_ans" value="2">
+                                             <span class="checkmark "></span>
+                                          </label>
+                                       </div>
+                                    </div>
+                                    <div style="width:100%;padding-left:30px;position:relative;">
+                                       <div style="margin-top: 15px;">
+                                          <label class="custom_radio"><span class="option_no all_options">It was great body paragraph</span>
+                                             <input type="radio" class="body_radio" id="html" name="radio_ans" value="3">
+                                             <span class="checkmark "></span>
+                                          </label>
+                                       </div>
+                                    </div>
+                                    <a href="javascript:;" type="button" class="btn btn-primary ans_body_comment" style="background-color: #bee131;color:#000; margin-top:30px">Submit</a>
+
+                                 </div>
+                                 <div class="body_paragraph_checkbox_show_teacher col-md-6" style="min-height:150px;">
+                                    <P>Teacher Grading:</P>             
+                                    <div style="width:100%;padding-left:30px;position:relative;">
+                                       <div style="margin-top: 15px;">
+                                          <label class="custom_radio"><span class="option_no all_options">Not Bad</span>
+                                             <input type="radio" class="body_checkbox_ans1" id="html" name="body_ans_introduction" value="1" disabled>
+                                             <span class="checkmark "></span>
+                                          </label>
+                                       </div>
+                                    </div>
+                                    <div style="width:100%;padding-left:30px;position:relative;">
+                                       <div style="margin-top: 15px;">
+                                          <label class="custom_radio"><span class="option_no all_options">Not Related</span>
+                                             <input type="radio" class="body_checkbox_ans2" id="html" name="body_ans_introduction" value="2" disabled>
+                                             <span class="checkmark "></span>
+                                          </label>
+                                       </div>
+                                    </div>
+                                    <div style="width:100%;padding-left:30px;position:relative;">
+                                       <div style="margin-top: 15px;">
+                                          <label class="custom_radio"><span class="option_no all_options">It was great body paragraph</span>
+                                             <input type="radio" class="body_checkbox_ans3" id="html" name="body_ans_introduction" value="3" disabled>
+                                             <span class="checkmark"></span>
+                                          </label>
+                                       </div>
+                                    </div>
+
+                                 </div>               
+                                  
+                                
+                                 <a href="javascript:;" type="button" class="btn btn-primary ans_body_next_new" style="background-color: #bee131;color:#000; margin-top:30px">Next</a>                
+                              </div>
+
+                              <div class="total_point_show" style="padding-right:14px;">
+                                 <div style="text-align:center;padding:10px;">
+                                       <h4 style="font-size:24px">Your Total Point: <span class="all_point_show" style="background:#ff0000;color:#e6eed5">30</span></h4>               
+                                 </div>                       
+                              </div>
+                           </div>
+
+
+                        </div>
+
+                     </div>
+
+                  </div>
+
+               </div>
+
+            </div>
+         </div>
+      </div>
+   </div>
+   <input type="hidden" id="story_checkbox_mark">
+   <input type="hidden" id="word_spelled_mark">
+   <input type="hidden" id="creative_sentence_mark">
+   <input type="hidden" id="conclusion_sentence_mark">
+   <input type="hidden" id="conclusion_checkbox_mark">
+   <input type="hidden" id="introduction_sentence_mark">
+   <input type="hidden" id="introduction_checkbox_mark">
+   <input type="hidden" id="body_sentence_point">
+   <input type="hidden" id="body_checkbox_mark">
+   <!-- End -->
+   <input type="hidden" id="number_increase" value="0">
+   <input type="hidden" id="number_increase_new" value="0">
+
+   <input type="hidden" id="every_word_index">
+   <input type="hidden" id="every_sentence_index">
+   <input type="hidden" id="every_conclusion_index">
+   <input type="hidden" id="every_introduction_index">
+   <input type="hidden" id="every_body_index">
+   <style type="text/css">
+      .frist_time_user_mid_con_mes strong {
+         color: #ff7f27;
+      }
+
+      .frist_time_user_mid_con_mes a {
+         color: #00c1f7;
+         display: inline-block;
+      }
+
+      .frist_time_user_mid_con a {
+         display: inline-block;
+      }
+
+      .frist_time_user_mid_con label {
+         margin-bottom: 6px;
+      }
+
+      .frist_time_user_mid_con .image_box {
+         border: 1px solid #00c1f7;
+         height: 100px;
+         width: 100px;
+         margin: 10px auto;
+         background: #d9d9d9;
+      }
+
+      .clik_point {
+         border: 1px solid #4bb04f;
+         background: #4bb04f;
+         color: #fff;
+         height: 60px;
+         width: 60px;
+         line-height: 55px;
+         text-align: center;
+         margin: 20px auto;
+         border-radius: 50%;
+         font-size: 30px;
+         cursor: pointer;
+      }
+
+      .clik_point_detatis {
+         display: inline-flex;
+         justify-content: center;
+         align-items: center;
+         padding: 20px 0px;
+      }
+
+      .clik_point_detatis .clik_point {
+         display: block !important;
+         margin-left: 10px;
+         border: 1px solid #ff0000;
+         background: #ff0000;
+         color: #fff;
+         height: 60px;
+         width: 60px;
+         line-height: 55px;
+         text-align: center;
+         border-radius: 50%;
+         font-size: 30px;
+      }
+
+      .clik_point_detatis_tutor .your_achived_point {
+         max-width: 200px;
+         margin: auto;
+      }
+
+      #topicstory_tutor .btm_word_limt {
+         min-height: 300px;
+         padding: 30px;
+      }
+
+      .your_achived_point {
+         border: 1px solid #015f4e;
+         padding: 15px;
+         text-align: center;
+         margin: 10px;
+         background: #f4f5f9;
+      }
+
+      .your_achived_point button {
+         padding: 7px 15px;
+         color: #fff;
+         background: #015f4e;
+         border: 0;
+         border-radius: 5px;
+         margin-top: 10px;
+      }
+
+      .w-50 {
+         width: 70px;
+         display: inline-block;
+      }
+
+      .profile_right_ida {
+         padding: 10px;
+         padding-top: 20px;
+         text-align: center;
+
+      }
+
+      .profile_right_ida .welcom_mes {
+         font-size: 13px;
+         line-height: 16px;
+         margin: 20px 0px;
+         padding: 10px;
+         background: #b5e61d;
+         border: 1px solid #0079bc;
+      }
+
+      .profile_right_ida u {
+         color: #7f7f7f;
+      }
+
+      .profile_right_ida .btn-primary {
+         margin-bottom: 5px;
+         background: #fff;
+         color: #333;
+         padding: 6px 15px;
+         border-radius: 0;
+         line-height: 16px;
+         border: 1px solid #c3c3c3;
+      }
+
+      .profile_right_ida .btn-primary:hover {
+         background: #a349a4;
+         color: #fff;
+         padding: 6px 15px;
+         border-radius: 0;
+         line-height: 16px;
+      }
+
+      #show_question_idea_profile table {
+         font-size: 13px;
+      }
+
+      .profile_right_ida_bottom {
+         padding: 0 10px;
+      }
+
+      .profile_right_ida_bottom .table>thead>tr>th {
+         border-bottom: 2px solid #e6eed5;
+      }
+
+      .red {
+         color: #ff0000;
+      }
+
+      .blue {
+         color: #00b0f0;
+      }
+
+      .gold {
+         color: #e36c09;
+      }
+
+      .green {
+         color: #00b050;
+      }
+
+      .orange {
+         color: #953734;
+      }
+
+      .profile_right_ida_bottom .table tbody tr>td {
+         text-align: center;
+         padding: 4px 10px;
+         color: #ed1c24;
+      }
+
+      .profile_right_ida_bottom .table tbody tr {
+         background: #e6eed5;
+         border-bottom: 20px solid #fff;
+      }
+
+      .profile_right_ida_bottom .table input {
+         margin: 0;
+      }
+
+      .profile_right_ida_bottom .table tbody tr>td:first-child {
+         text-align: left;
+         color: #76923c;
+         font-weight: bold;
+      }
+
+      .profile_right_ida_bottom .table input[type=checkbox]:focus {
+         outline: none;
+      }
+
+      .profile_right_ida_bottom .table input[type=checkbox] {
+         background-color: #fff;
+         border-radius: 2px;
+         appearance: none;
+         -webkit-appearance: none;
+         -moz-appearance: none;
+         width: 14px;
+         height: 14px;
+         cursor: pointer;
+         position: relative;
+         border: 1px solid #959595;
+      }
+
+      .profile_right_ida_bottom .table input[type=checkbox]:checked {
+         border: 1px solid #ed1c24;
+         background-color: #ed1c24;
+         background: #ed1c24 url("data:image/gif;base64,R0lGODlhCwAKAIABAP////3cnSH5BAEKAAEALAAAAAALAAoAAAIUjH+AC73WHIsw0UCjglraO20PNhYAOw==") 3px 3px no-repeat;
+         background-size: 8px;
+      }
+
+      @media (min-width: 1000px) {
+         #show_question_idea_profile .modal-dialog {
+            width: 800px;
+         }
+      }
+
+      #show_question_idea_profile {
+         overflow-y: scroll;
+      }
+
+      .profile_left_ida table {
+         margin-top: 10px;
+      }
+
+      .profile_left_ida table tr td {
+         border: none;
+         padding: 0;
+         color: #7f7f7f;
+         font-size: 13px;
+      }
+
+      .p-3 {
+         padding: 15px;
+      }
+
+      .ss_modal .modal-content {
+         border: 1px solid #a6c9e2;
+         padding: 0;
+         margin: 0;
+      }
+
+      .top_textprev {
+         padding-bottom: 20px;
+      }
+
+      .top_textprev h4 {
+         color: #7f7f7f;
+         font-size: 16px;
+         font-weight: bold;
+      }
+
+      .top_textprev .btn {
+         background: #9c4d9e;
+         border-radius: 0;
+         border: none;
+         color: #fff;
+         padding: 8px 20px;
+         margin-top: 10px;
+         margin-bottom: 20px;
+      }
+
+      .top_textprev h6 {
+         color: #000;
+         font-size: 14px;
+         font-weight: bold;
+      }
+
+      .workout_menu {
+         height: initial;
+      }
+
+      .workout_menu ul {
+         margin-bottom: 20px;
+         display: flex;
+         align-items: center;
+         flex-wrap: wrap;
+      }
+
+      .workout_menu ul>div {
+         margin-bottom: 10px;
+      }
+
+      .top_word_limt {
+         background: #d9edf7;
+         padding: 8px 10px;
+         display: flex;
+         flex-wrap: wrap;
+         align-items: center;
+      }
+
+      .m-auto {
+         margin-left: auto;
+      }
+
+      .b-btn {
+         background: #0079bc;
+         padding: 5px 10px;
+         border-radius: 5px;
+         color: #fff;
+      }
+
+      #login_form .modal-dialog,
+      .ss_modal .modal-dialog {
+         max-width: 100%;
+      }
+
+      .btm_word_limt .content_box_word {
+         border-radius: 5px;
+         border: 1px solid #82bae6;
+         margin: 10px 0;
+         padding: 10px;
+         width: 100%;
+         box-shadow: 0px 0px 10px #d9edf7;
+         margin-top: 0 !important;
+      }
+
+      .btm_word_limt .content_box_word u {
+         color: #888;
+      }
+
+      .btm_word_limt .content_box_word span {
+         color: #888;
+      }
+
+      .btm_word_limt .content_box_word p {
+         margin-top: 10px;
+      }
+
+      .ss_modal .modal-dialog {
+         position: absolute;
+         margin-top: 0% !important;
+         top: 50% !important;
+         left: 50% !important;
+         transform: translate(-50%, -50%) !important;
+      }
+
+      .ss_modal .modal-content {
+         padding: 5px !important;
+      }
+
+      .ss_modal .modal-header {
+         background: url(assets/images/login_bg.png) repeat-x;
+         color: #fff;
+         padding: 0;
+         border-radius: 5px;
+      }
+
+      #show_question_idea_profile .modal-dialog {
+         position: relative;
+         margin-top: 2% !important;
+         top: 0 !important;
+         left: auto !important;
+         transform: translate(0%, 0%) !important;
+      }
+
+      .created_name {
+         background: #66afe9;
+         color: #fff;
+         font-size: 16px;
+         padding: 10px 20px;
+         display: flex;
+         flex-wrap: wrap;
+         align-items: center;
+      }
+
+      .mclose {
+         position: absolute;
+         right: 10px;
+         top: 10px;
+         font-size: 20px;
+         z-index: 10;
+         cursor: pointer;
+      }
+
+      .created_name img {
+         max-width: 30px;
+         margin-right: 10px;
+      }
+
+      .created_name a {
+         color: #fff;
+      }
+   </style>
+   <script type="text/javascript">
+      $("#answer_matching").hide();
+
+      $(function(){
+         var ideaInfo = "<?=$idea_info[0]['student_title'] ?>";
+         var start_button_status = "<?=$idea_info[0]['add_start_button'] ?>";
+         if(ideaInfo == 0){
+            // alert('showing');
+            if(start_button_status==1){
+               $('#answer_matching').hide();
+               $('#idea_start').show();
+               
+            }else{
+               $('#answer_matching').show();
+               $('#idea_start').hide();
+               $('.idea_start_action').hide();
+            }
+            
+
+            <?php if ($question_time_in_second != 0) { ?>
+               //takeDecesionForQuestion();
+            <?php } ?>
+
+         }
+      });
+
+      $("#detail_question").on("click", function() {
+         $("#show_detail_question").modal('show');
+      });
+
+      $("#topicstory").on("click", function() {
+         $modal = $('#show_question_idea');
+         $modal.modal('hide');
+         $modal2 = $('#show_question_idea_profile');
+         $modal2.modal('show');
+      });
+
+      $("#close_idea").on("click", function() {
+         $modal = $('#show_question_idea_profile');
+         $modal.modal('show');
+      });
+
+      $('.clik_point_detatis_tutor').hide();
+      $(".clik_point").on("click", function() {
+         $('.clik_point_detatis_tutor').show();
+         $('.clik_point').hide();
+      });
+
+
+      $("#idea_start").on("click", function() {
+
+         <?php if ($question_time_in_second != 0) { ?>
+            takeDecesionForQuestion();
+         <?php } ?>
+
+         $('#answer_matching').show();
+         $('#idea_start').hide();
+         $('.idea_start_action').hide();
+
+         //  if(idea_no!=''){
+         
+         var ideaInfo = "<?=$idea_info[0]['student_title'] ?>";
+         if(ideaInfo != 0){
+            var idea_title = "Title";
+            text = '<p style="text-align:center;text-decoration:underline;"><b>Idea/Topic/Story title</b></p><p style="text-align:center;color:#fb8836f0;"><b>"' + idea_title + '"</b>&#9999;&#65039;</p><p></p>';
+         }else{
+            text = '';
+         }
+
+         CKEDITOR.instances.word_count.on('paste', function(evt) {
+            evt.cancel();
+         });
+         CKEDITOR.instances.word_count.setData(text);
+
+         <?php if ($idea_info[0]['student_title'] == 1) { ?>
+            $modal2 = $('#idea_title_show');
+            $modal2.modal('show');
+         <?php } ?>
+
+      });
+
+
+      CKEDITOR.on('instanceReady', function(evt) {
+
+         // console.log(evt.editor.getData());
+         evt.editor.on('focus', function(event) {
+            var getData = evt.editor.getData();
+            var setData = getData.replace("<p>Start write here...</p>", " ");
+            evt.editor.setData(setData);
+            
+         });
+         evt.editor.focus();
+      });
+
+
+      $(".ideabtnclose").on("click", function() {
+
+         var idea_title = $(".idea_title_text").val();
+         if (idea_title == '') {
+            $modal2 = $('#idea_title_failed');
+            $modal2.modal('show');
+         } else {
+            $modal2 = $('#idea_title_show');
+            $modal2.modal('hide');
+            text = '<p style="text-align:center;text-decoration:underline;"><b>Idea/Topic/Story title</b></p><p style="text-align:center;color:#fb8836f0;"><b style="font-size:18px;">"' + idea_title + '"</b>&nbsp;&#9999;&#65039;</p><br><p>Start write here...</p>';
+
+            CKEDITOR.instances.word_count.setData(text);
+         }
+         
+
+      });
+
+      //    =====
+      $("#show_questions").on("click", function() {
+         $modal = $('#show_question_idea');
+         $modal.modal('hide');
+         $modal2 = $('#show_question_body');
+         $modal2.modal('show');
+      });
+
+      $(".idea_title_modal").on("click", function() {
+
+         var idea_id = $(this).attr("data-index");
+         var idea = $(this).attr("data-id");
+         var html = '<textarea  class="form-control idea_title_text mytextarea" name="idea_title_text' + idea_id + '"></textarea>';
+         $(".idea_modal_textarea").html(html);
+         $(".idea_title_modal").css('background', 'none');
+         $(this).css('background', '#f1e7b5');
+
+         <?php if ($idea_info[0]['student_title'] == 1) { ?>
+            //  $modal2 = $('#idea_title_show'); 
+            //  $modal2.modal('show');
+         <?php } ?>
+         $.ajax({
+            url: "get_preview_idea_info",
+            method: "POST",
+            data: {
+               idea: idea
+            },
+            dataType: 'json',
+            success: function(data) { 
+               console.log(data);
+               //const student_ans = data['student_ans'].replace(/(<([^>]+)>)/gi, "");
+
+               $('.tutor_name').text(data['name']);
+               //$('.tutor_ans_modal').text(student_ans);
+               $('.tutor_ans_modal').html(data['student_ans']);
+               $('.idea_title_name').html(data['student_ans']);
+
+               $('#pre_idea_no').val(data['idea_no']);
+               $('#pre_tutor_id').val(data['tutor_id']);
+               $('#pre_question_id').val(data['question_id']);
+               $('#pre_idea_id').val(data['idea_id']);
+            }
+         });
+
+      });
+      $(".clik_point").on("click", function() {
+         var question_id = $("#pre_question_id").val();
+         var idea_id = $("#pre_idea_id").val();
+         var idea_no = $("#pre_idea_no").val();
+         var tutor_id = $("#pre_tutor_id").val();
+         var module_id = 0;
+         $.ajax({
+            url: "Student/add_tutor_like",
+            method: "POST",
+            data: {
+               question_id: question_id,
+               module_id: module_id,
+               idea_id: idea_id,
+               idea_no: idea_no,
+               tutor_id: tutor_id
+            },
+            dataType: 'json',
+            success: function(data) {
+               console.log(data);
+
+
+               if (data.insert_or_update == 1) {
+                  alert('like added');
+               } else {
+                  alert('allready like added');
+               }
+               $(".clik_point").text(data.total_like);
+               $('.clik_point_detatis_tutor').show();
+               $('.clik_point').hide();
+            }
+
+         })
+      });
+
+      $(document).ready(function() {
+
+         var wordCounts = {};
+
+         CKEDITOR.instances.word_count.on('key', function(e) {
+            var text = CKEDITOR.instances['word_count'].document.getBody().getText();
+
+
+            var matches = text.match(/\b/g);
+            wordCounts[this.id] = matches ? matches.length / 2 : 0;
+            var finalCount = 0;
+            $.each(wordCounts, function(k, v) {
+               finalCount += v;
+            });
+
+            $('#display_count').html(finalCount);
+            $('#total_word').val(finalCount);
+            am_cal(finalCount);
+
+         });
+
+         $('#answer_matching').click(function() {
+            // alert('hi');
+            var total_word = $('#total_word').val();
+            var limit_word = <?= $idea_info[0]['word_limit']; ?>;
+
+            var percentage_value = (limit_word / 100) * 80;
+            $('#percent_limit').text(percentage_value);
+
+            if(limit_word != 0){
+               if (total_word > limit_word) {
+                  // alert('hi');
+
+                  $('#total_limit_exceed').modal('show');
+
+               } else if (total_word < percentage_value) {
+                  // alert('hlw');
+                  $('#low_limit').modal('show');
+
+               } else {
+
+                  var idea_answer = CKEDITOR.instances['word_count'].getData();
+                  var question_id = $('#question_id').val();
+                  var idea_id = $('#idea_id').val();
+
+                  $.ajax({
+                     type: 'POST',
+                     url: 'IDontLikeIt/save_answer_idea',
+                     data: {
+                        idea_answer: idea_answer,
+                        question_id: question_id,
+                        idea_id: idea_id,
+                     },
+                     dataType: 'html',
+                     success: function(results) {
+                        // console.log(results);
+
+                        if (results == 1) {
+                           $('#idea_save_success').modal('show');
+                        } else if (results == 0) {
+
+                        }
+                     }
+                  });
+               }
+            }else{
+               var idea_answer = CKEDITOR.instances['word_count'].getData();
+               var question_id = $('#question_id').val();
+               var idea_id = $('#idea_id').val();
+
+               $.ajax({
+                  type: 'POST',
+                  url: 'IDontLikeIt/save_answer_idea',
+                  data: {
+                     idea_answer: idea_answer,
+                     question_id: question_id,
+                     idea_id: idea_id,
+                  },
+                  dataType: 'html',
+                  success: function(results) {
+                     // console.log(results);
+
+                     if (results == 1) {
+                        $('#idea_save_success').modal('show');
+                     } else if (results == 0) {
+
+                     }
+                  }
+               });
+            }
+
+
+         });
+
+
+         $("#preview_success").click(function() {
+            <?php $send = $_SERVER['HTTP_REFERER']; ?>
+            var redirect_to = "<?php echo $send; ?>";
+            // window.location = redirect_to;
+            window.location.reload();
+         });
+
+
+      });
+   </script>
+
+   <script>
+      var success_flag = 1;
+      var remaining_time;
+      var clear_interval;
+      var h1 = document.getElementsByTagName('h1')[0];
+
+      function circulate1() {
+
+         remaining_time = remaining_time - 1;
+
+         var v_hours = Math.floor(remaining_time / 3600);
+         var remain_seconds = remaining_time - v_hours * 3600;
+         var v_minutes = Math.floor(remain_seconds / 60);
+         var v_seconds = remain_seconds - v_minutes * 60;
+
+         if (remaining_time > 0) {
+            h1.textContent = v_hours + " : " + v_minutes + " : " + v_seconds + "  ";
+         } else {
+            var idea_answer = CKEDITOR.instances['word_count'].getData();
+            var question_id = $('#question_id').val();
+            var idea_id = $('#idea_id').val();
+
+            $('#times_up_message').modal('show');
+            $('#question_reload').click(function() {
+               location.reload();
+            });
+
+            //   $.ajax({
+            //       type: 'POST',
+            //       url: 'IDontLikeIt/save_answer_idea',
+            //       data: {
+            //          idea_answer: idea_answer,
+            //          question_id: question_id,
+            //          idea_id: idea_id,
+            //       },
+            //       dataType: 'html',
+            //       success: function (results) {
+            //           if (results == 1) {
+            //               $('#idea_save_success').modal('show');
+            //           } else if (results == 0) {
+
+
+            //           }
+            //       }
+            //   });
+            h1.textContent = "EXPIRED";
+         }
+      }
+
+      function takeDecesionForQuestion() {
+
+         var exact_time = $('#exact_time').val();
+
+         var now = $('#now').val();
+         var opt = $('#optionalTime').val();
+         //   alert(opt);
+
+         var countDownDate = parseInt(now) + parseInt($('#optionalTime').val());
+
+         var distance = countDownDate - now;
+         var hours = Math.floor(distance / 3600);
+         //        alert(distance)
+         var x = distance % 3600;
+
+         var minutes = Math.floor(x / 60);
+
+         var seconds = distance % 60;
+
+         var t_h = hours * 60 * 60;
+         var t_m = minutes * 60;
+         var t_s = seconds;
+
+         var total = parseInt(t_h) + parseInt(t_m) + parseInt(t_s);
+
+
+         var end_depend_optional = parseInt(exact_time) + parseInt(opt);
+
+         if (opt > total) {
+            remaining_time = total;
+         } else {
+            remaining_time = parseInt(end_depend_optional) - parseInt(now);
+         }
+
+         clear_interval = setInterval(circulate1, 1000);
+
+      }
+
+      $(function(){
+         $('#student_left_menu').click(function(){
+            var page_increment = 2;
+            var page_index = $('#student_page_index').val();
+            if(page_index>1){
+               var new_page_index = parseInt(page_index)-1;
+               $('#student_page_index').val(new_page_index);
+               var start_index = (new_page_index*page_increment)-1;
+               var end_index = (new_page_index*page_increment);
+               $('.student_idea_ans').hide();
+               for(var i=start_index;i<=end_index;i++){
+                  $('.student_idea'+i).show();
+               }
+            }
+         });
+         $('#student_right_menu').click(function(){
+            var index_area = $('.student_idea_ans').length;
+            var page_increment = 2;
+            var page_index = $('#student_page_index').val();
+            var new_page_index = parseInt(page_index)+1;
+            
+            var start_index = (page_index*page_increment)+1;
+            var end_index = (new_page_index*page_increment);
+            if(start_index<=index_area){
+               $('#student_page_index').val(new_page_index);
+               $('.student_idea_ans').hide();
+               for(var i=start_index;i<=end_index;i++){
+                  $('.student_idea'+i).show();
+               }
+            }
+         });
+
+         $('#tutor_left_menu').click(function(){
+            var page_increment = 2;
+            var page_index = $('#tutor_page_index').val();
+            if(page_index>1){
+               var new_page_index = parseInt(page_index)-1;
+               $('#tutor_page_index').val(new_page_index);
+               var start_index = (new_page_index*page_increment)-1;
+               var end_index = (new_page_index*page_increment);
+               $('.tutor_idea_ans').hide();
+               for(var i=start_index;i<=end_index;i++){
+                  $('.tutor_idea'+i).show();
+               }
+            }
+         });
+
+         $('#tutor_right_menu').click(function(){
+            var index_area = $('.tutor_idea_ans').length;
+            var page_increment = 2;
+            var page_index = $('#tutor_page_index').val();
+            var new_page_index = parseInt(page_index)+1;
+            
+            var start_index = (page_index*page_increment)+1;
+            var end_index = (new_page_index*page_increment);
+            if(start_index<index_area){
+               $('#tutor_page_index').val(new_page_index);
+               $('.tutor_idea_ans').hide();
+               for(var i=start_index;i<=end_index;i++){
+                  $('.tutor_idea'+i).show();
+               }
+            }
+         });
+
+         $(".view_tutor_idea").click(function() {
+         var tutor_id = $(this).attr("data-index");
+         var idea_id = $(this).attr("data-idea");
+         var question_id = $(this).attr("data-question");
+
+         $.ajax({
+            url: "submited_tutor_idea",
+            method: "POST",
+            enctype: 'multipart/form-data',
+            data: {
+               tutor_id: tutor_id,
+               idea_id: idea_id,
+               question_id: question_id
+            },
+            cache: false,
+            dataType: 'json',
+            success: function(data) { 
+               console.log(data);
+
+               var idea_info = data.get_idea[0];
+               var profile_info = data.profile_info[0];
+               var idea_information = data.idea_information[0];
+               // var teacher_correction = data.teacher_correction[0];
+               var country = data.country[0];
+               //  console.log(idea_info[0].id);
+               // var tutor_name = idea_info.name;
+               var tutor_ans = idea_info.idea_ans;
+               //var profile_image= profile_info.profile_image;
+               var tutor_idea_title = '"'+idea_info.idea_title+'"';
+               var idea_tutor_name_view = idea_info.name;
+               $('.tutor_idea_title_view').text(tutor_idea_title);
+               $('.idea_tutor_name_view').text(idea_tutor_name_view);
+               
+
+               // $('.tutor_idea_text').html(tutor_ans);
+               //$('.tutor_idea_text').find('p:first').remove();
+               //$('.tutor_idea_text').find('p:first').remove();
+               // alert($( ".tutor_idea_text" ).html());
+
+
+               // $(".blue").text('"' + idea_information.idea_title + '"');
+
+               $(".tutor_ans_modal").html(tutor_ans);
+               // $(".tutor_name").html(tutor_name);
+               // $("#get_tutor_id").val(idea_info.tutor_id);
+               $("#show_question_idea_tutor").modal("show");
+               $("#tutor_submit_date").text(idea_info.submit_date);
+               // $("#tutor_idea_no").val(idea_information.idea_no);
+               if(idea_info.idea_publish==1){
+                   
+                  $('#tutor_idea_next').show();
+                  $('#tutor_idea_close').hide();
+               }else{
+                  $('#tutor_idea_close').show();
+                  $('#tutor_idea_next').hide();
+               }
+               $('.idea_tutor_name').text(idea_info.name);
+               var idea_title='"'+idea_info.idea_title+'"<i class="fa fa-pencil" aria-hidden="true"></i>';
+               $('#tutor_idea_title').html(idea_title);
+               $('.idea_submit_date').text(idea_info.submit_date);
+               $('.student_mark_submit').attr('data-idea',idea_info.idea_id);
+               $('.student_mark_submit').attr('data-question',question_id);
+               $('.student_mark_submit').attr('data-point',idea_info.tutor_point);
+
+            }
+
+         });
+         });
+
+      $(".view_student_idea").click(function() {
+         var student_id = $(this).attr("data-index");
+         var idea_id = $(this).attr("data-idea");
+         var question_id = $(this).attr("data-question");
+      
+         $('#student_view_idea_idea_id').val(idea_id);
+         $('#student_view_idea_student_id').val(student_id);
+         $('#student_view_idea_question_id').val(question_id);
+
+         $.ajax({
+            url: "submited_student_idea",
+            method: "POST",
+            enctype: 'multipart/form-data',
+            data: {
+               student_id: student_id,
+               idea_id: idea_id,
+               question_id: question_id
+            },
+            cache: false,
+            dataType: 'json',
+            success: function(data) {
+
+               // console.log(data);
+
+               var idea_info = data.get_idea[0];
+               console.log(idea_info);
+               var profile_info = data.profile_info[0];
+               //var idea_information = data.idea_information[0];
+               //var teacher_correction = data.teacher_correction[0];
+               var country = data.country[0];
+
+               var tutor_ans = data.get_idea[0].idea_ans;
+
+               // alert(tutor_ans);
+               // $(".blue").text('"' + tutor_ans + '"');
+               // console.log(tutor_ans);
+
+               $(".others_idea_info_blue").html('"' + tutor_ans + '"');
+               $('.others_idea_info_blue').find('p:first').remove();
+               var test = $(".others_idea_info_blue").find("p:first").text();
+               // var test1 = test.replace('&nbsp','');
+               $(".others_idea_info_blue").html(test );
+
+               $(".idea_quiz_modal_blue").html('"' + tutor_ans + '"');
+               $('.idea_quiz_modal_blue').find('p:first').remove();
+               var test = $(".idea_quiz_modal_blue").find("p:first").text();
+               // var test1 = test.replace('&nbsp','');
+               $(".idea_quiz_modal_blue").html(test);
+               
+               $("#student_idea_title").html(test);
+
+
+
+
+
+               /*===========new code=================*/
+               if (tutor_ans != '') {
+                  var get_sentences = tutor_ans.match(/<p>([^\<]*?)<\/p>/g);
+                  var sentences = new Array();
+                  var all_answer = '';
+                  var all_sentense_answer = '';
+                  var all_conclusion_answer = '';
+                  var all_introduction_answer='';
+                  var all_body_answer='';
+                  var all_common_answer = '';
+                  var all_input = '';
+                  var html = '';
+                  var html2 = '<button type="button" class="btn btn_blue " data-dismiss="modal">Close</button>';
+                  //get_sentences.first().remove();
+                  var abc_arr = new Array();
+                  var sentense_store = new Array();
+                  // alert(get_sentences);
+                  for (var i = 0; i < get_sentences.length; i++) {
+
+                     var get_sentence = get_sentences[i].replace(/<[\/]{0,1}(p)[^><]*>/ig, "");
+                     var new_get_word = get_sentence.split(" ");
+                     var get_new_sentense = get_sentence.split(".");
+
+                     //for word----------------
+                     var j;
+                     for (j = 0; j < new_get_word.length; j++) {
+                        abc_arr.push(new_get_word[j]);
+                     }
+
+                     //for sentense----------------
+                     var m;
+                     for (m = 0; m < get_new_sentense.length; m++) {
+                        //console.log(get_new_sentense[m]);
+                        sentense_store.push(get_new_sentense[m]);
+                     }
+
+                     var index = i + 1;
+
+                     // all_answer += '<h6 class="grammer_answer grammer_ans'+index+'" data-id="'+index+'">'+get_sentence+'</h6>';
+                     //alert(all_answer);
+                     all_input += '<input type="hidden" name="option[]" value="' + get_sentence + '">';
+                     sentences.push(get_sentence);
+
+                     // all_answer += '<h6 style="background-color:#000" class="grammer_answer grammer_ans'+index+'" data-id="'+index+'" data-color_no ="'+index+'">'+get_sentence+'</h6>';
+                     // all_input += '<input type="hidden" name="option[]" value="'+get_sentence+'">';
+                     // sentences.push(get_sentence);
+
+                     html += '<textarea class="form-control hint_textarea hint_textarea_no' + index + '" data-id="' + index + '" name="hint_text[]">' + get_sentence + '</textarea>';
+                     html2 += '<button type="button" class="btn btn_blue hint_save_button hint_save_button_no' + index + '" data-dismiss="modal" data-id ="' + index + '">Save</button>';
+                  }
+
+                  all_answer += '<p class="grammer_class_remove" style="display: flex;flex-wrap: wrap; gap:3px">';
+                  var k;
+                  for (k = 0; k < abc_arr.length; k++) {
+                     all_answer += '<span class="one_hint_wrap grammer_answer grammer_ans' + k + '" data-id="' + k + '">' + abc_arr[k] + '</span>';
+                  }
+                  all_answer += '</p>';
+
+                  //For Creative Sentence Part----------
+                  all_sentense_answer += '<p class="grammer_class_remove_new" style="flex-wrap: wrap; gap:3px">';
+                  var n;
+                  //console.log(get_new_sentense.length);
+                  for (n = 0; n < sentense_store.length; n++) {
+
+                     all_sentense_answer += '<span class="one_hint_wrap grammer_answer_new grammer_ans_new' + n + '" data-id="' + n + '">' + sentense_store[n] + '.</span>';
+                  }
+                  all_sentense_answer += '</p>';
+
+                  //For Concluson Part----------
+                  all_conclusion_answer += '<p class="grammer_class_remove_news" style="flex-wrap: wrap; gap:3px">';
+                  var n;
+                  //console.log(get_new_sentense.length);
+                  for (n = 0; n < sentense_store.length; n++) {
+
+                     all_conclusion_answer += '<span class="one_hint_wrap grammer_answer_news grammer_ans_news' + n + '" data-id="' + n + '">' + sentense_store[n] + '.</span>';
+                  }
+                  all_conclusion_answer += '</p>';
+
+                  //For Introduction Part----------
+                  all_introduction_answer += '<p class="grammer_class_remove_introduction" style="flex-wrap: wrap; gap:3px">';
+                  var n;
+                  //console.log(get_new_sentense.length);
+                  for (n = 0; n < sentense_store.length; n++) {
+
+                     all_introduction_answer += '<span class="one_hint_wrap grammer_answer_introduction grammer_ans_introduction' + n + '" data-id="' + n + '">' + sentense_store[n] + '.</span>';
+                  }
+                  all_introduction_answer += '</p>';
+
+                  //ALl body_paragraph_answer-----------------
+                  all_body_answer += '<p class="grammer_class_remove_body" style="flex-wrap: wrap; gap:3px">';
+                  var n;
+                  //console.log(get_new_sentense.length);
+                  for (n = 0; n < sentense_store.length; n++) {
+
+                     all_body_answer += '<span class="one_hint_wrap grammer_answer_body grammer_ans_body' + n + '" data-id="' + n + '">' + sentense_store[n] + '.</span>';
+                  }
+                  all_body_answer += '</p>';
+
+                  //All common answer----------------
+                  all_common_answer += '<p class="" style="flex-wrap: wrap; gap:3px">';
+                  var n;
+                  for (n = 0; n < sentense_store.length; n++) {
+                     all_common_answer += '<span class="">' + sentense_store[n] + '.</span>';
+                  }
+                  all_common_answer += '</p>';
+
+
+                  $('.creative_sentense_paragraph_show').html(all_sentense_answer);
+                  $('.conclusion_sentense_paragraph_show').html(all_conclusion_answer);
+                  $('.introduction_answer_paragraph').html(all_introduction_answer);
+                  $('.body_answer_paragraph').html(all_body_answer);
+                  $('.common_answer_paragraph').html(all_common_answer);
+                  $('.tutor_idea_text').html(all_answer);
+                  // $('.hint_selection_content').html(all_answer);
+                  $('#all_option_input').html(all_input);
+                  $('.hint_text_modal_body').html(html);
+                  $('.hint_text_modal_footer').html(html2);
+
+               } else {
+                  alert('First You need to write Writing input');
+               }
+
+
+
+               /*===========new code=================*/
+
+
+               var student_name = idea_info.name;
+               var student_ans = idea_info.student_ans;
+               var profile_image = profile_info.profile_image;
+
+
+               var student_info = '<tr><td>Created</td><td>' + profile_info.created + '</td></tr><tr><td>Name</td><td >' + profile_info.student_name + '</td></tr><tr><td>Grade/Year</td><td>' + profile_info.student_grade + '</td></tr><tr><td>School</td><td>Qstudy</td></tr><tr><td>Country</td><td>' + country.countryName + '</td></tr>';
+
+
+               var check_array = Array.isArray(data.teacher_correction[0]);
+
+               if (data.teacher_correction.length > 0) {
+
+                  var teacher_correction = data.teacher_correction[0];
+
+                  var idea_correction_img = teacher_correction.teacher_correction;
+                  var total_point = teacher_correction.total_point;
+                  var checked_checkbox = teacher_correction.checked_checkbox;
+
+                  $("#tutor_report").val(checked_checkbox);
+                  $("#teacher_correction_img").attr('src', idea_correction_img);
+                  $("#tutor_grade").val(total_point);
+               }
+
+
+
+
+               $("#profile_image").attr('src', '<?php echo base_url(); ?>assets/uploads//profile/thumbnail/' + profile_image);
+               $("#submited_ans_view_student_id").val(idea_info.student_id);
+               //$(".blue").text('"'+idea_information.idea_title+'"');
+               $("#submited_ans_idea_no").val(idea_info.idea_no);
+
+               $(".student_ans_modal").html(student_ans);
+               $(".student_name").html(student_name);
+               $("#show_question_idea").modal("show");
+               $("#student_info").html(student_info);
+
+
+            }
+
+         });
+
+         $("#tutor_report_show").click(function() {
+
+
+            var relchk1 = '';
+            var relval1 = '';
+            var relchk2 = '';
+            var relval2 = '';
+            var relchk3 = '';
+            var relval3 = '';
+            var relchk4 = '';
+            var relval4 = '';
+            var relchk5 = '';
+            var relval5 = '';
+
+            var creativechk1 = '';
+            var creativeval1 = '';
+            var creativechk2 = '';
+            var creativeval2 = '';
+            var creativechk3 = '';
+            var creativeval3 = '';
+            var creativechk4 = '';
+            var creativeval4 = '';
+            var creativechk5 = '';
+            var creativeval5 = '';
+
+            var grammerchk1 = '';
+            var grammerval1 = '';
+            var grammerchk2 = '';
+            var grammerval2 = '';
+            var grammerchk3 = '';
+            var grammerval3 = '';
+            var grammerchk4 = '';
+            var grammerval4 = '';
+            var grammerchk5 = '';
+            var grammerval5 = '';
+
+            var vocabularychk1 = '';
+            var vocabularyval1 = '';
+            var vocabularychk2 = '';
+            var vocabularyval2 = '';
+            var vocabularychk3 = '';
+            var vocabularyval3 = '';
+            var vocabularychk4 = '';
+            var vocabularyval4 = '';
+            var vocabularychk5 = '';
+            var vocabularyval5 = '';
+
+            var claritychk1 = '';
+            var clarityval1 = '';
+            var claritychk2 = '';
+            var clarityval2 = '';
+            var claritychk3 = '';
+            var clarityval3 = '';
+            var claritychk4 = '';
+            var clarityval4 = '';
+            var claritychk5 = '';
+            var clarityval5 = '';
+
+            var relevance = '';
+            var creativity = '';
+            var grammar = '';
+            var vocabulary = '';
+            var clarity = '';
+
+            var checked_checkbox = $("#tutor_report").val();
+            if (checked_checkbox == '') {
+               alert('Tutor does not grade yet');
+            } else {
+               var reports = JSON.parse(checked_checkbox);
+
+               var i = '';
+               for (i = 0; i < reports.length; i++) {
+                  var checked = 'checked';
+                  var report = reports[i].split(',');
+                  //console.log(report);
+
+                  if (report[1] == 'relevance') {
+
+                     if (report[2] == 1) {
+                        var relchk1 = 'checked';
+                        var relval1 = 1;
+                     }
+                     if (report[2] == 2) {
+                        var relchk2 = 'checked';
+                        var relval2 = 2;
+                     }
+                     if (report[2] == 3) {
+                        var relchk3 = 'checked';
+                        var relval3 = 3;
+                     }
+                     if (report[2] == 4) {
+                        var relchk4 = 'checked';
+                        var relval4 = 4;
+                     }
+                     if (report[2] == 5) {
+                        var relchk5 = 'checked';
+                        var relval5 = 5;
+                     }
+
+                  }
+
+                  if (report[1] == 'creativity') {
+
+                     if (report[2] == 1) {
+                        var creativechk1 = 'checked';
+                        var creativeval1 = 1;
+                     }
+                     if (report[2] == 2) {
+                        var creativechk2 = 'checked';
+                        var creativeval2 = 2;
+                     }
+                     if (report[2] == 3) {
+                        var creativechk3 = 'checked';
+                        var creativeval3 = 3;
+                     }
+                     if (report[2] == 4) {
+                        var creativechk4 = 'checked';
+                        var creativeval4 = 4;
+                     }
+                     if (report[2] == 5) {
+                        var creativechk5 = 'checked';
+                        var creativeval5 = 5;
+                     }
+                  }
+
+                  if (report[1] == 'grammar') {
+
+                     if (report[2] == 1) {
+                        var grammerchk1 = 'checked';
+                        var grammerval1 = 1;
+
+                     }
+                     if (report[2] == 2) {
+                        var grammerchk2 = 'checked';
+                        var grammerval2 = 2;
+                     }
+                     if (report[2] == 3) {
+                        var grammerchk3 = 'checked';
+                        var grammerval3 = 3;
+                     }
+                     if (report[2] == 4) {
+                        var grammerchk4 = 'checked';
+                        var grammerval4 = 4;
+                     }
+                     if (report[2] == 5) {
+                        var grammerchk5 = 'checked';
+                        var grammerval5 = 5;
+                     }
+                  }
+
+                  if (report[1] == 'vocabulary') {
+
+                     if (report[2] == 1) {
+                        var vocabularychk1 = 'checked';
+                        var vocabularyval1 = 1;
+                     }
+                     if (report[2] == 2) {
+                        var vocabularychk2 = 'checked';
+                        var vocabularyval2 = 2;
+                     }
+                     if (report[2] == 3) {
+                        var vocabularychk3 = 'checked';
+                        var vocabularyval3 = 3;
+                     }
+                     if (report[2] == 4) {
+                        var vocabularychk4 = 'checked';
+                        var vocabularyval4 = 4;
+                     }
+                     if (report[2] == 5) {
+                        var vocabularychk5 = 'checked';
+                        var vocabularyval5 = 5;
+                     }
+                  }
+
+                  if (report[1] == 'clarity') {
+
+                     if (report[2] == 1) {
+                        var claritychk1 = 'checked';
+                        var clarityval1 = 1;
+                     }
+                     if (report[2] == 2) {
+                        var claritychk2 = 'checked';
+                        var clarityval2 = 2;
+                     }
+                     if (report[2] == 3) {
+                        var claritychk3 = 'checked';
+                        var clarityval3 = 3;
+                     }
+                     if (report[2] == 4) {
+                        var claritychk4 = 'checked';
+                        var clarityval4 = 4;
+                     }
+                     if (report[2] == 5) {
+                        var claritychk5 = 'checked';
+                        var clarityval5 = 5;
+                     }
+
+                  }
+               }
+
+               var final_report = '<table class="table"><thead><tr><th></th><th class="red">Poor</th><th class="blue">Average</th><th class="gold">Good</th><th class="green">Very Good</th><th class="orange">Excellent!</th></tr></thead><tbody><tr><td>Relevance</td><td><input type="checkbox" value="1" class="report_box relevance" id="Rel_poor" name="Rel_poor"' + relchk1 + '><span id="Rel_poor_span">' + relval1 + '</span></td><td><input type="checkbox" value="2" class="report_box relevance" id="Rel_average" name="Rel_average"' + relchk2 + '><span id="Rel_average_span">' + relval2 + '</span></td><td><input type="checkbox" value="3" class="report_box relevance" id="Rel_good" name="Rel_good"' + relchk3 + '><span id="Rel_good_span">' + relval3 + '</span></td><td><input type="checkbox" value="4" class="report_box relevance" id="Rel_very_good" name="Rel_very_good"' + relchk4 + '><span id="Rel_very_good_span">' + relval4 + '</span></td><td><input type="checkbox" value="5" class="report_box relevance" id="Rel_excellent" name="Rel_excellent"' + relchk5 + '><span id="Rel_excellent_span">' + relval5 + '</span></td></tr><tr><td>Creativity</td><td><input type="checkbox" value="1" class="report_box creativity" id="cre_poor" name="cre_poor"' + creativechk1 + '><span id="cre_poor_span">' + creativeval1 + '</span></td><td><input type="checkbox" value="2" class="report_box creativity" id="cre_average" name="cre_average"' + creativechk2 + '><span id="cre_average_span">' + creativeval2 + '</span></td><td><input type="checkbox" value="3" class="report_box creativity" id="cre_good" name="cre_good"' + creativechk3 + '><span id="cre_good_span">' + creativeval3 + '</span></td><td><input type="checkbox" value="4" class="report_box creativity" id="cre_very_good" name="cre_very_good"' + creativechk4 + '><span id="cre_very_good_span">' + creativeval4 + '</span></td><td><input type="checkbox" value="5" class="report_box creativity" id="cre_excellent" name="cre_excellent"' + creativechk5 + '><span id="cre_excellent_span">' + creativeval5 + '</span></td></tr><tr><td>Grammar/Spelling</td><td><input type="checkbox" value="1" class="report_box grammar" id="grammar_poor" name="grammar_poor"' + grammerchk1 + '><span id="grammar_poor_span">' + grammerval1 + '</span></td><td><input type="checkbox" value="2" class="report_box grammar" id="grammar_average" name="grammar_average"' + grammerchk2 + '><span id="grammar_average_span">' + grammerval2 + '</span></td><td><input type="checkbox" value="3" class="report_box grammar" id="grammar_good" name="grammar_good"' + grammerchk3 + '><span id="grammar_good_span">' + grammerval3 + '</span></td><td><input type="checkbox" value="4" class="report_box grammar" id="grammar_very_good" name="grammar_very_good" ' + grammerchk4 + '><span id="grammar_very_good_span">' + grammerval4 + '</span></td><td><input type="checkbox" value="5" class="report_box grammar" id="grammar_excellent" name="grammar_excellent" ' + grammerchk5 + '><span id="grammar_excellent_span">' + grammerval5 + '</span></td></tr><tr><td>Vocabulary</td><td><input type="checkbox" value="1" class="report_box vocabulary" id="vocabulary_poor" name="vocabulary_poor"' + vocabularychk1 + '><span id="vocabulary_poor_span">' + vocabularyval1 + '</span></td><td><input type="checkbox" value="2" class="report_box vocabulary" id="vocabulary_average" name="vocabulary_average" ' + vocabularychk2 + '><span id="vocabulary_average_span">' + vocabularyval2 + '</span></td><td><input type="checkbox" value="3" class="report_box vocabulary" id="vocabulary_good" name="vocabulary_good" ' + vocabularychk3 + '><span id="vocabulary_good_span">' + vocabularyval3 + '</span></td><td><input type="checkbox" value="4" class="report_box vocabulary" id="vocabulary_very_good" name="vocabulary_very_good" ' + vocabularychk4 + '><span id="vocabulary_very_good_span">' + vocabularyval4 + '</span></td><td><input type="checkbox" value="5" class="report_box vocabulary" id="vocabulary_excellent" name="vocabulary_excellent"' + vocabularychk5 + '><span id="vocabulary_excellent_span">' + vocabularyval5 + '</span></td></tr><tr><td>Clarity</td><td><input type="checkbox" value="1" class="report_box clarity" id="clarity_poor" name="clarity_poor" ' + claritychk1 + '><span id="clarity_poor_span">' + clarityval1 + '</span></td><td><input type="checkbox" value="2" class="report_box clarity" id="clarity_average" name="clarity_average"' + claritychk2 + '><span id="clarity_average_span">' + clarityval2 + '</span></td><td><input type="checkbox" value="3" class="report_box clarity" id="clarity_good" name="clarity_good"' + claritychk3 + '><span id="clarity_good_span">' + clarityval3 + '</span></td><td><input type="checkbox" value="4" class="report_box clarity" id="clarity_very_good" name="clarity_very_good" ' + claritychk4 + '><span id="clarity_very_good_span">' + clarityval4 + '</span></td><td><input type="checkbox" value="5" class="report_box clarity" id="clarity_excellent" name="clarity_excellent" ' + claritychk5 + '><span id="clarity_excellent_span">' + clarityval5 + '</span></td></tr></tbody></table>';
+
+               $(".profile_right_ida_bottom").html(final_report);
+            }
+         });
+
+      });
+
+      $("#idea_next_student").on("click", function() {
+
+         $("#show_question_idea").modal("hide");
+         $('#others_idea_info').modal('show');
+
+         var student_id = $('#student_view_idea_student_id').val();
+         var idea_id = $('#student_view_idea_idea_id').val();
+         var question_id = $('#student_view_idea_question_id').val();
+         //  alert(student_id);
+         //  alert(idea_id);
+         //  alert(question_id);
+         $.ajax({
+            url: "Student/get_student_submited_idea_info",
+            method: "POST",
+            enctype: 'multipart/form-data',
+            data: {student_id:student_id,idea_id:idea_id,question_id:question_id},
+            cache: false,
+            dataType: 'json',
+            success: function(data) {
+                  console.log(data);
+                  if(data.profile_image !=''){
+                     var img_url = '<?php echo base_url();?>assets/uploads/profile/thumbnail/'+data.profile_image;
+                  }else{
+                     var img_url = 'assets/images/default_user.jpg';
+                  }
+                  $('#idea_user_image').attr('src',img_url);
+                  $('#st_sub_idea_created_date').text(data.submit_date);
+                  $('#st_sub_idea_name').text(data.name);
+                  $('#st_sub_idea_grade').text(data.student_grade);
+                  $('#st_sub_idea_school').text(data.school_name);
+                  $('#st_sub_idea_country').text(data.countryName);
+
+                  $('.idea_user_image').attr('src',img_url);
+                  $('.st_sub_idea_created_date').text(data.submit_date);
+                  $('.st_sub_idea_name').text(data.name);
+                  $('.st_sub_idea_grade').text(data.student_grade);
+                  $('.st_sub_idea_school').text(data.school_name);
+                  $('.st_sub_idea_country').text(data.countryName);
+
+            }
+         });
+
+      });
+      $('#start_idea_quiz').click(function() {
+         //console.log('hi');
+         // var studentAns = $("#student_ans").val();
+         // $(".blue").text('"' + studentAns + '"');
+         //alert('jii');
+         $("#others_idea_info").modal("hide");
+         $('#idea_quiz_modal').modal('show');
+         $('.tutor_idea_text').hide();
+         $('.common_answer_paragraph').show();
+         });
+      
+      
+      });
+   </script>
+
+<script>
+      //For Word---------------------- 
+      var every_word_index = new Array();
+      $(document).delegate('.grammer_answer', 'click', function() {
+         every_word_index.push($(this).attr('data-id'));
+         $("#every_word_index").val(every_word_index);
+         $("#student_spelling_ans").val(every_word_index);
+         var number = $("#number_increase").val();
+         var sum = parseInt(number) + 1;
+         $("#number_increase").val(sum);
+         var text = $(this).text();
+         var id = $(this).attr('data-id');
+         var test = $('.grammer_ans' + id).attr('style', 'background-color: rgb(255, 201, 14);');
+         var text_new = '<p data-id="' + sum + '" class="incorrect_word' + id + '"><span class="number_inser">' + sum + '. </span>' + text + '</p>'
+         $('.choosen_word_show').append(text_new);
+
+      });
+
+      $('.next_submit_spelled').hide();
+      $('.ans_submit_spelled').click(function() {
+         $(this).hide();
+         $('.next_submit_spelled').show();
+
+         var student_id = $('#student_view_idea_student_id').val();
+         var module_id = $('#student_view_idea_module_id').val();
+         var question_id = $('#student_view_idea_question_id').val();
+         // alert(student_id);
+         // alert(module_id);
+         // alert(question_id);
+         $.ajax({
+            url: "student_word_get",
+            method: "POST",
+            enctype: 'multipart/form-data',
+            data: {student_id:student_id,module_id:module_id,question_id:question_id},
+            cache: false,
+            dataType: 'json',
+            success: function(data) {
+
+               var result_calculate = 0;
+               var word_mark = Math.ceil(parseInt(20) / parseInt(data.word_index.length));
+
+               var chosen_word_index = $('#every_word_index').val().split(",");
+               $('.grammer_answer').css("background-color", "");
+               $('.grammer_class_remove').find('span').removeClass("grammer_answer");
+               if (data.word_index.length > 0) {
+                  for (var i = 0; i < data.word_index.length; i++) {
+                     $('.grammer_ans' + data.word_index[i]).css("background-color", "#b5e61d");
+                     $('.grammer_ans' + data.word_index[i]).append('<span class="tooltip_one tooltip_rs">' + data.correct_words[i] + '</span>');
+                  }
+               }
+               //show conrrect and incorrect word---------------
+               if (chosen_word_index.length > 0) {
+                  for (var j = 0; j < chosen_word_index.length; j++) {
+                     if ($.inArray(chosen_word_index[j], data.word_index) >= 0) {
+                        result_calculate = result_calculate + word_mark;
+                        $('.incorrect_word' + chosen_word_index[j]).append('<span style="margin-left:10px;color:#ED1622;">(Correct Chosen)</span>')
+                     } else {
+                        $('.incorrect_word' + chosen_word_index[j]).append('<span style="margin-left:10px;color:#ED1622;">(Incorrect Chosen)</span>');
+                     }
+                  }
+
+                  //for word spelled mark show--------------
+                  $('.your_point_show').show();
+                  $('#student_spelling_get_point').val(result_calculate);
+                  $('#word_spelled_mark').val(result_calculate);
+                  $('.total_point_count').html(result_calculate);
+               }
+
+               $('.tooltip_rs').draggable({
+                  revert: 'invalid',
+               });
+            }
+         });
+
+      });
+
+      //For sentence---------------------- 
+      $('.chose_creative_sentense').hide();
+      $('.heading_creative_sentense_show').hide();
+      $('.creative_sentense_paragraph_show').hide();
+      $('.next_submit_spelled').click(function() {
+         $('.your_point_show').hide();
+         $('.choose_word').hide();
+         $('.ans_submit_miss_spelled').hide();
+         $(this).hide();
+         $('.tutor_idea_text').hide();
+         $('.chose_creative_sentense').show();
+         $('.heading_creative_sentense_show').show();
+         $('.creative_sentense_paragraph_show').show();
+
+      });
+
+      //Creative sentence part Start-------------
+      var every_sentense_index = new Array();
+      $(document).delegate('.grammer_answer_new', 'click', function() {
+         var id = $(this).attr('data-id');
+         every_sentense_index.push(id);
+        
+         if (every_sentense_index.length > 2) {
+            every_sentense_index.pop(); //remove last index
+            alert('You can not select more than two sentence');
+            return false;
+         }
+         $('#every_sentence_index').val(every_sentense_index);
+         $('#student_sentence_index_ans').val(every_sentense_index);
+         var number = $("#number_increase_new").val();
+         var sum = parseInt(number) + 1;
+         $("#number_increase_new").val(sum);
+         var text = $(this).text();
+         if (every_sentense_index.length == 1) {
+            var test = $('.grammer_ans_new' + id).attr('style', 'background-color: rgb(180, 231, 28);');
+         } else {
+            var test = $('.grammer_ans_new' + id).attr('style', 'background-color: rgb(255, 201, 14);');
+         }
+
+         var text_new = '<p data-id="' + sum + '" class="incorrect_word'+id +'"><span class="number_inser">' + sum + '. </span>' + text + '</p>'
+         $('.chose_creative_sentense_show').append(text_new);
+      });
+
+
+      $('.next_creative_sentence_button').hide();
+      $('.ans_creative_question').click(function() {
+         $(this).hide();
+         $('.next_creative_sentence_button').show();
+
+         var student_id = $('#student_view_idea_student_id').val();
+         var module_id = $('#student_view_idea_module_id').val();
+         var question_id = $('#student_view_idea_question_id').val();
+
+         $.ajax({
+            url: "Student/student_creative_sentence_get",
+            method: "POST",
+            enctype: 'multipart/form-data',
+            data: {student_id:student_id,module_id:module_id,question_id:question_id},
+            cache: false,
+            dataType: 'json',
+            success: function(data) {
+               var result_calculate = 0;
+               var sentence_mark = 10;
+
+               var chosen_sentence_index = $('#every_sentence_index').val().split(",");
+
+               $('.grammer_answer_new ').css("background-color","");
+               if (data.sentence_index.length > 0) {
+                  for (var i = 0; i < data.sentence_index.length; i++) {
+                     //$('.grammer_answer_new'+data.sentence_index[i]).css("background-color","#b5e61d"); 
+                     if (i == 0) {
+                        $('.grammer_ans_new' + data.sentence_index[i]).css("background-color", "background-color: rgb(180, 231, 28)");
+                        $('.grammer_ans_new' + data.sentence_index[i]).append('<span class="tooltip_one tooltip_rs">Creative Sentence</span>');
+                     } else {
+                        $('.grammer_ans_new' + data.sentence_index[i]).css("background-color", "background-color: rgb(255, 171, 191)");
+                        $('.grammer_ans_new' + data.sentence_index[i]).append('<span class="tooltip_one tooltip_rs">Creative Sentence</span>');
+                     }
+                  }
+
+                    //show conrrect and incorrect Sentence---------------
+                    if(chosen_sentence_index.length>0){
+                      for (var j = 0; j < chosen_sentence_index.length; j++) {
+                        if ($.inArray(chosen_sentence_index[j],data.sentence_index) >= 0) {
+                           result_calculate = result_calculate + sentence_mark;
+                           $('.incorrect_word'+chosen_sentence_index[j]).prepend('<div style="margin-left:10px;color:#EE1A20;">(Correct Chosen)</div>')
+                        } else {
+                           $('.incorrect_word' + chosen_sentence_index[j]).prepend('<div style="margin-left:10px;color:#EE1A20;">(Incorrect Chosen)</div>');
+                           $('.grammer_ans_new' + chosen_sentence_index[j]).css("background-color", "background-color: rgb(255,201,14)");
+                           $('.grammer_ans_new' + chosen_sentence_index[j]).append('<span class="tooltip_one tooltip_rs_new">Incorrect Chosen</span>');
+                        }
+                      }
+                    }
+                     $('.your_point_show').show();
+                     $('.total_point_count').html(result_calculate);
+                     $('#creative_sentence_mark').val(result_calculate);
+                     $('#student_sentence_get_point').val(result_calculate);
+                     $('.tooltip_rs').draggable({
+                        revert: 'invalid',
+                     });
+
+                     $('.tooltip_rs_new').draggable({
+                     revert: 'invalid',
+                     });
+                   
+               }
+          
+
+            }
+         });
+      });
+      //Creative sentence part End------------- 
+
+
+      //Conclusion part Start-------------
+      $('.conclusion_sentense_paragraph_show').hide();
+      $('.heading_conclusion_sentense_show').hide();
+      $('.next_creative_sentence_button').click(function(e) {
+         $(this).hide();
+         $('.your_point_show').hide();
+         $('.chose_conclusion_sentense').show();
+         $('.creative_sentense_paragraph_show').hide();
+         $('.heading_conclusion_sentense_show').show();
+         $('.heading_creative_sentense_show').hide();
+         $('.chose_creative_sentense').hide();
+         $('.conclusion_sentense_paragraph_show').show();
+      })
+
+      var every_conclusion_sentense_index = new Array();
+      $(document).delegate('.grammer_answer_news', 'click', function() {
+         var id = $(this).attr('data-id');
+         var text = $(this).text();
+         every_conclusion_sentense_index.push(id);
+         if (every_conclusion_sentense_index.length > 1) {
+            every_conclusion_sentense_index.pop();
+            alert('You can not select more than one sentence');
+            return false;
+         }
+         $("#every_conclusion_index").val(every_conclusion_sentense_index);
+         $("#student_ans_conclusion_index").val(every_conclusion_sentense_index);
+         $('.grammer_ans_news' + id).attr('style', 'background-color: rgb(255,201,14);');
+         var text_new = '<p class="incorrect_word'+id+'"><span class="number_inser"></span>' + text + '</p>'
+         $('.chose_conclusion_sentense_show').append(text_new);
+      });
+
+      $('.next_conclusion_sentence_button').hide();
+      $('.ans_conclusion_question').click(function(e) {
+         $('.grammer_class_remove_news').find('span').removeClass("grammer_answer_news");
+         $(this).hide();
+         $('.next_conclusion_sentence_button').show();
+
+         var student_id = $('#student_view_idea_student_id').val();
+         var module_id = $('#student_view_idea_module_id').val();
+         var question_id = $('#student_view_idea_question_id').val();
+
+         $.ajax({
+            url: "Student/student_conclusion_sentence_get",
+            method: "POST",
+            enctype: 'multipart/form-data',
+            data: {student_id:student_id,module_id:module_id,question_id:question_id},
+            cache: false,
+            dataType: 'json',
+            success: function(data) {
+               var result_calculate = 0;
+               var conclusion_point=20;
+               var every_conclusion_index = $('#every_conclusion_index').val().split(",");
+
+               //show conrrect and incorrect Sentence---------------
+               if (every_conclusion_index.length > 0) {
+                  for (var j = 0; j<every_conclusion_index.length; j++) {
+                    
+                     if ($.inArray(every_conclusion_index[j],data.conclusion_sentence_index) >= 0) {
+                        result_calculate = result_calculate+conclusion_point;
+                        $('.incorrect_word' +every_conclusion_index[j]).prepend('<div style="margin-left:10px;color:#EE1A20;">Correct Chosen</div>')
+                        // $('.grammer_ans_news' + data.conclusion_sentence_index[j]).css("background-color", "background-color: rgb(255,174,201)");
+                        // $('.grammer_ans_news' + data.conclusion_sentence_index[j]).append('<span class="tooltip_one tooltip_rs">Correct Conclusion</span>');
+                     } else {
+                        //console.log(data.conclusion_sentence_index[j]);
+                        $('.incorrect_word' + every_conclusion_index[j]).prepend('<div style="margin-left:10px;color:#EE1A20;">Incorrect Chosen</div>');
+                        $('.grammer_ans_news' + every_conclusion_index[j]).append('<span class="tooltip_one tooltip_rs_new">Incorrect Conclusion</span>');
+                        $('.grammer_ans_news' + data.conclusion_sentence_index[j]).css("background-color",   "background-color: rgb(255,174,201)");
+                        $('.grammer_ans_news' + data.conclusion_sentence_index[j]).append('<span class="tooltip_one tooltip_rs">Correct Conclusion</span>');
+                     }
+                  }
+                  $('.tooltip_rs_new').draggable({
+                     revert: 'invalid',
+                  });
+                  $('.tooltip_rs').draggable({
+                     revert: 'invalid',
+                  });
+
+                  //Mark Show------
+                  $('.your_point_show').show();
+                  $('.total_point_count').html(result_calculate);
+                  $('#conclusion_sentence_mark').val(result_calculate);
+                  $('#student_ans_conclusion_get_point').val(result_calculate);
+               }
+            }
+         });
+      });
+
+
+      $('.conclusion_checkbox_show').hide();
+      $('.conclusion_checkbox_show_teacher').hide();
+      $('.heading_checkbox_show').hide();
+      $('.common_answer_paragraph').hide();
+      $('.next_conclusion_sentence_button').click(function(e) {
+         $(this).hide();
+         $('.conclusion_checkbox_show').show();
+         $('.chose_conclusion_sentense').hide();
+         $('.heading_conclusion_sentense_show').hide();
+         $('.conclusion_sentense_paragraph_show').hide();
+         $('.heading_checkbox_show').show();
+         $('.common_answer_paragraph').show();
+         $('.your_point_show').hide();
+      });
+
+      $('.ans_conclusion_next').hide();
+    
+      $('.ans_conclusion_comment').click(function(e){
+         var is_empty = 0;
+         var std_value = 0;
+         var std_check_val = 0;
+         $(".conclusion_radio").each(function() {
+            if ($(this).is(":checked")) {
+               is_empty = 1;
+               std_value = $(this).val();
+            }
+         });
+         if (is_empty == 0) {
+            alert("please checked one of them");
+            return false;
+         }
+         $('#student_radio_conclusion_index').val(std_value);
+         //alert(is_empty);
+         $(this).hide(); 
+
+         var student_id = $('#student_view_idea_student_id').val();
+         var module_id = $('#student_view_idea_module_id').val();
+         var question_id = $('#student_view_idea_question_id').val();
+
+         $.ajax({
+            url: "Student/student_conclusion_comment",
+            method: "POST",
+            enctype: 'multipart/form-data',
+            data: {student_id:student_id,module_id:module_id,question_id:question_id},
+            cache: false,
+            dataType: 'json',
+            success: function(data) {
+                  //console.log(data);
+                  $('.ans_conclusion_next').show();
+                  $('.conclusion_checkbox_show_teacher').show();
+                  $('.conclusion_checkbox_ans'+data.conclusion_comment).attr('checked','checked');
+                  $('.your_point_show').show();
+                  
+                  if(std_value == data.conclusion_comment){
+                     $('.total_point_count').html(data.conclusion_mark);
+                     $('#conclusion_checkbox_mark').val(data.conclusion_mark);
+                     $('#student_radio_conclusion_get_point').val(std_value);
+                  }
+                  else
+                  {
+                     $('.total_point_count').html(0);
+                     $('#conclusion_checkbox_mark').val(0);    
+                  }
+            }
+         });
+      });
+
+      //Introduction Part Start---------------
+      $('.heading_introduction_paragraph').hide();
+      $('.introduction_answer_paragraph').hide();
+      $('.ans_conclusion_next').click(function(e){
+            $('.heading_introduction_paragraph').show();
+            $('.introduction_paragraph').show();
+            $('.heading_checkbox_show').hide();
+            $('.conclusion_checkbox').hide();
+            $('.your_point_show').hide();
+            $('.common_answer_paragraph').hide();
+            $('.introduction_answer_paragraph').show();
+      });
+
+      var every_introduction_sentense_index = new Array();
+      $(document).delegate('.grammer_answer_introduction', 'click', function() {
+         var id = $(this).attr('data-id');
+         var text = $(this).text();
+         every_introduction_sentense_index.push(id);
+         if (every_introduction_sentense_index.length > 1) {
+            every_introduction_sentense_index.pop();
+            alert('You can not select more than one sentence');
+            return false;
+         }
+         $("#every_introduction_index").val(every_introduction_sentense_index);
+         $("#student_ans_introduction_index").val(every_introduction_sentense_index);
+         $('.grammer_ans_introduction'+id).attr('style','background-color: rgb(255,201,14);');
+         var text_new = '<p class="incorrect_word'+id+'"><span class="number_inser"></span>' + text + '</p>'
+         $('.introduction_paragraph_show').append(text_new);
+      })
+
+      $('.ans_introduction_next').hide();
+      $('.introduction_paragraph_submit').click(function(e){
+            $('.grammer_class_remove_introduction').find('span').removeClass("grammer_answer_introduction");
+            $(this).hide();
+            $('.ans_introduction_next').show();
+
+            var student_id = $('#student_view_idea_student_id').val();
+            var module_id = $('#student_view_idea_module_id').val();
+            var question_id = $('#student_view_idea_question_id').val();
+
+            $.ajax({
+            url: "Student/student_introduction_sentence_get",
+            method: "POST",
+            enctype: 'multipart/form-data',
+            data: {student_id:student_id,module_id:module_id,question_id:question_id},
+            cache: false,
+            dataType: 'json',
+            success: function(data) {
+               var result_calculate = 0;
+               var introduction_point=20;
+               var every_introduction_index = $('#every_introduction_index').val().split(",");
+               //console.log(every_introduction_index);
+               //show conrrect and incorrect Sentence---------------
+               if (every_introduction_index.length > 0) {
+                  for (var j = 0; j < every_introduction_index.length; j++) {
+                     if ($.inArray(every_introduction_index[j], data.introduction_sentence_index) >= 0) {
+                        result_calculate =result_calculate+introduction_point;
+                        $('.incorrect_word' + every_introduction_index[j]).prepend('<div style="margin-left:10px;color:#EE1A20;">Correct Chosen</div>');
+                     } else {
+                        //console.log(every_introduction_index[j]);
+                        $('.incorrect_word' + every_introduction_index[j]).prepend('<div style="margin-left:10px;color:#EE1A20;">Incorrect Chosen</div>');
+                        $('.grammer_ans_introduction' + every_introduction_index[j]).append('<span class="tooltip_one tooltip_rs_new">Incorrect Introduction</span>');
+
+                        $('.grammer_ans_introduction' + data.introduction_sentence_index[j]).css("background-color", "background-color: rgb(255,174,201)");
+                        $('.grammer_ans_introduction' + data.introduction_sentence_index[j]).append('<span class="tooltip_one tooltip_rs">Correct Introduction</span>');
+                      
+                     }
+                  }
+                  $('.tooltip_rs_new').draggable({
+                     revert: 'invalid',
+                  });
+                  $('.tooltip_rs').draggable({
+                     revert: 'invalid',
+                  });
+
+                  //Mark Show------
+                  $('.your_point_show').show();
+                  $('.total_point_count').html(result_calculate);
+                  $('#introduction_sentence_mark').val(result_calculate);
+                  $('#student_ans_intro_get_point').val(result_calculate);
+               }
+            }
+         });
+      });
+
+      $('.heading_checkbox_introduction').hide();
+      $('.introduction_checkbox_show').hide();
+      $('.introduction_checkbox_show_teacher').hide();
+      $('.ans_introduction_next_new').hide();
+      $('.ans_introduction_next').click(function(e){
+            $(this).hide();
+            $('.ans_conclusion_next').hide();
+            $('.introduction_checkbox_show').show();
+            $('.heading_introduction_paragraph').hide();
+            $('.introduction_answer_paragraph').hide();
+            $('.introduction_paragraph_show').hide();
+            $('.common_answer_paragraph').show();
+            $('.heading_checkbox_introduction').show();
+            $('.your_point_show').hide();
+      });
+
+      $('.ans_introduction_comment').click(function(e){
+         var is_empty = 0;
+         var std_values = 0;
+         var std_check_val = 0;
+         $(".introduction_radio").each(function() {
+            if ($(this).is(":checked")) {
+               is_empty = 1;
+               std_values = $(this).val();
+            }
+         });
+         if (is_empty == 0) {
+            alert("please checked one of them");
+            return false;
+         }
+         $('#student_intro_radio_index').val(std_values);
+         //alert(is_empty);
+         $(this).hide(); 
+
+         var student_id = $('#student_view_idea_student_id').val();
+         var module_id = $('#student_view_idea_module_id').val();
+         var question_id = $('#student_view_idea_question_id').val();
+
+         $.ajax({
+            url: "Student/student_introduction_comment",
+            method: "POST",
+            enctype: 'multipart/form-data',
+            data: {student_id:student_id,module_id:module_id,question_id:question_id},
+            cache: false,
+            dataType: 'json',
+            success: function(data) {
+                  //console.log(data);
+                  $('.ans_introduction_next_new').show();
+                  $('.introduction_checkbox_show_teacher').show();
+                  $('.introduction_checkbox_ans'+data.introduction_comment).attr('checked','checked');
+                  $('.your_point_show').show();
+                  
+                  if(std_values == data.introduction_comment){
+                     $('.total_point_count').html(data.introduction_mark);
+                     $('#introduction_checkbox_mark').val(data.introduction_mark);
+                     $('#student_intro_radio_get_point').val(data.introduction_mark);
+                  }
+                  else
+                  {
+                     $('.total_point_count').html(0);
+                     $('#introduction_checkbox_mark').val(0);    
+                  }
+            }
+         });
+      });
+
+      //Body Paragraph start------------------
+      $('.heading_body_paragraph').hide();
+      $('.body_answer_paragraph').hide();
+      $('.ans_introduction_next_new').click(function(e){
+            $(this).hide();
+            $('.heading_checkbox_introduction').hide();
+            $('.introduction_checkbox').hide();
+            $('.common_answer_paragraph').hide();
+            $('.heading_body_paragraph').show();
+            $('.body_paragraph').show();
+            $('.body_answer_paragraph').show();
+      });
+
+      var every_body_sentense_index = new Array();
+      $(document).delegate('.grammer_answer_body ','click',function(){
+            var id = $(this).attr('data-id');
+            var text = $(this).text();
+            every_body_sentense_index.push(id);
+            if (every_body_sentense_index.length > 1) {
+               every_body_sentense_index.pop();
+               alert('You can not select more than one sentence');
+               return false;
+            }
+            $("#every_body_index").val(every_body_sentense_index);
+            $("#student_ans_paragraph_index").val(every_body_sentense_index);
+            $('.grammer_ans_body'+id).attr('style','background-color: rgb(255,201,14);');
+            var text_new = '<p class="incorrect_word'+id+'"><span class="number_inser"></span>' + text + '</p>'
+            $('.body_paragraph_show').append(text_new);
+      });
+
+      $('.ans_body_next').hide();
+      $('.body_paragraph_submit').click(function(e){
+            $('.grammer_class_remove_body').find('span').removeClass("grammer_answer_body");
+            $(this).hide();
+            $('.ans_body_next').show();
+
+            var student_id = $('#student_view_idea_student_id').val();
+            var module_id = $('#student_view_idea_module_id').val();
+            var question_id = $('#student_view_idea_question_id').val();
+
+            $.ajax({
+            url: "Student/student_body_sentence_get",
+            method: "POST",
+            enctype: 'multipart/form-data',
+            data: {student_id:student_id,module_id:module_id,question_id:question_id},
+            cache: false,
+            dataType: 'json',
+            success: function(data) {
+               var result_calculate = 0;
+               var body_point=20;
+               var every_body_index = $('#every_body_index').val().split(",");
+               //console.log(every_body_index);
+               //show conrrect and incorrect Sentence---------------
+               if (every_body_index.length > 0) {
+                  for (var j = 0; j < every_body_index.length; j++) {
+                     if ($.inArray(every_body_index[j], data.body_sentence_index) >= 0) {
+                        result_calculate =result_calculate+body_point;
+                        $('.incorrect_word'+every_body_index[j]).prepend('<div style="margin-left:10px;color:#EE1A20;">Correct Chosen</div>');
+                     } else {
+                        //console.log(every_introduction_index[j]);
+                        $('.incorrect_word' + every_body_index[j]).prepend('<div style="margin-left:10px;color:#EE1A20;">Incorrect Chosen</div>');
+                        $('.grammer_ans_body' + every_body_index[j]).append('<span class="tooltip_one tooltip_rs_new">Incorrect Body Paragraph</span>');
+                        
+                        $('.grammer_ans_body' + data.body_sentence_index[j]).css("background-color", "background-color: rgb(255,174,201)");
+                        $('.grammer_ans_body' + data.body_sentence_index[j]).append('<span class="tooltip_one tooltip_rs">Correct Body Paragraph</span>');
+                     
+                     }
+                  }
+                  $('.tooltip_rs_new').draggable({
+                     revert: 'invalid',
+                  });
+                  $('.tooltip_rs').draggable({
+                     revert: 'invalid',
+                  });
+
+                  //Mark Show------
+                  $('.your_point_show').show();
+                  $('.total_point_count').html(result_calculate);
+                  $('#body_sentence_point').val(result_calculate);
+                  $('#student_ans_paragraph_get_point').val(result_calculate);
+
+               }
+            }
+         });
+      });
+
+      $('.heading_checkbox_body').hide();
+      $('.body_paragraph_checkbox_show').hide();
+      $('.body_paragraph_checkbox_show_teacher').hide();
+      $('.ans_body_next_new').hide();
+      $('.ans_body_next').click(function(e){
+           $(this).hide();
+           $('.heading_body_paragraph').hide(); 
+           $('.body_paragraph').hide();
+           $('.heading_checkbox_body').show();
+           $('.body_answer_paragraph').hide();
+           $('.common_answer_paragraph').show();
+           $('.body_paragraph_checkbox_show').show();
+      });
+
+     $('.ans_body_comment').click(function(e){
+      var is_empty = 0;
+         var std_values = 0;
+         var std_check_val = 0;
+         $(".body_radio").each(function() {
+            if ($(this).is(":checked")) {
+               is_empty = 1;
+               std_values = $(this).val();
+            }
+         });
+         $('#student_ans_radio_paragraph').val(std_values);
+         if (is_empty == 0) {
+            alert("please checked one of them");
+            return false;
+         }
+
+         $(this).hide(); 
+
+         var student_id = $('#student_view_idea_student_id').val();
+         var module_id = $('#student_view_idea_module_id').val();
+         var question_id = $('#student_view_idea_question_id').val();
+
+         $.ajax({
+            url: "Student/student_body_comment",
+            method: "POST",
+            enctype: 'multipart/form-data',
+            data: {student_id:student_id,module_id:module_id,question_id:question_id},
+            cache: false,
+            dataType: 'json',
+            success: function(data) {
+                  $('.ans_body_next_new').show();
+                  $('.body_paragraph_checkbox_show_teacher').show();
+                  $('.body_checkbox_ans'+data.body_comment).attr('checked','checked');
+                  $('.your_point_show').show();
+                  
+                  if(std_values == data.body_comment){
+                     $('.total_point_count').html(data.body_mark);
+                     $('#body_checkbox_mark').val(data.body_mark);
+                     $('#student_ans_radio_paragraph_get_point').val(std_values);
+                  }
+                  else
+                  {
+                     $('.total_point_count').html(0);
+                     $('#body_checkbox_mark').val(0);    
+                  }
+            }
+         });
+     }); 
+     $('.total_point_show').hide();
+
+     $('.ans_body_next_new').click(function(e){
+           $(this).hide(); 
+           $('.heading_checkbox_body').hide();
+           $('.body_paragraph_checkbox_show').hide();
+           $('.body_paragraph_checkbox_show_teacher').hide();
+           $('.your_point_show').hide();
+           $('.total_point_show').show();
+           
+           var total_point=parseInt($('#story_checkbox_mark').val())+parseInt($('#word_spelled_mark').val())+parseInt($('#creative_sentence_mark').val())+parseInt($('#conclusion_sentence_mark').val())+parseInt($('#conclusion_checkbox_mark').val())+parseInt($('#introduction_sentence_mark').val())+parseInt($('#introduction_checkbox_mark').val())+parseInt($('#body_sentence_point').val())+parseInt($('#body_checkbox_mark').val());
+           
+           $('.all_point_show').html(total_point);
+
+           var question_id=$('#question_id').val();
+           var student_id='<?php echo $this->session->userdata('user_id')?>';  
+         $.ajax({
+            url: "Student/submited_student_idea_point",
+            method: "POST",
+            enctype: 'multipart/form-data',
+            data: {
+               student_id: student_id,
+               question_id: question_id,
+               total_point:total_point,
+            },
+            cache: false,
+            dataType: 'json',
+            success: function(data) {
+
+               $('#idea_quiz_modal').modal('hide');
+               base_url = '<?= base_url('/price_dashboard') ?>';
+               window.location.href = base_url
+            }
+         });
+     });
+
+      $('#student_left_menu').click(function(){
+
+         var page_increment = 2;
+         var page_index = $('#student_page_index').val();
+         if(page_index>1){
+            var new_page_index = parseInt(page_index)-1;
+            $('#student_page_index').val(new_page_index);
+            var start_index = (new_page_index*page_increment)-1;
+            var end_index = (new_page_index*page_increment);
+            $('.student_idea_ans').hide();
+            for(var i=start_index;i<=end_index;i++){
+               $('.student_idea'+i).show();
+            }
+         }
+      });
+      $('#student_right_menu').click(function(){
+         var index_area = $('.student_idea_ans').length;
+         var page_increment = 2;
+         var page_index = $('#student_page_index').val();
+         var new_page_index = parseInt(page_index)+1;
+         
+         var start_index = (page_index*page_increment)+1;
+         var end_index = (new_page_index*page_increment);
+         if(start_index<=index_area){
+            $('#student_page_index').val(new_page_index);
+            $('.student_idea_ans').hide();
+            for(var i=start_index;i<=end_index;i++){
+               $('.student_idea'+i).show();
+            }
+         }
+      });
+
+      $('#tutor_left_menu').click(function(){
+         var page_increment = 2;
+         var page_index = $('#tutor_page_index').val();
+         if(page_index>1){
+            var new_page_index = parseInt(page_index)-1;
+            $('#tutor_page_index').val(new_page_index);
+            var start_index = (new_page_index*page_increment)-1;
+            var end_index = (new_page_index*page_increment);
+            $('.tutor_idea_ans').hide();
+            for(var i=start_index;i<=end_index;i++){
+               $('.tutor_idea'+i).show();
+            }
+         }
+      });
+
+      $('#tutor_right_menu').click(function(){
+         var index_area = $('.tutor_idea_ans').length;
+         var page_increment = 2;
+         var page_index = $('#tutor_page_index').val();
+         var new_page_index = parseInt(page_index)+1;
+         
+         var start_index = (page_index*page_increment)+1;
+         var end_index = (new_page_index*page_increment);
+         if(start_index<index_area){
+            $('#tutor_page_index').val(new_page_index);
+            $('.tutor_idea_ans').hide();
+            for(var i=start_index;i<=end_index;i++){
+               $('.tutor_idea'+i).show();
+            }
+         }
+      });
+
+      $('#tutor_idea_next').click(function(){
+         $('#show_question_idea_tutor').modal('hide');
+         $('#tutor_idea_marking').modal('show');
+      });
+
+      $('.student_mark_submit').click(function(){
+         var student_ans = $('input[name="st_mark"]:checked').val();
+         var idea_id = $(this).attr('data-idea');
+         var question_id = $(this).attr('data-question');
+         var idea_point = $(this).attr('data-point');
+         if(student_ans!=''){
+            var get_point = 0;
+            if(student_ans==idea_point){
+               get_point = 10;
+            }
+           
+            $.ajax({
+               url: "Student/students_get_point_save",
+               method: "POST",
+               enctype: 'multipart/form-data',
+               data: {
+                  idea_id: idea_id,
+                  question_id: question_id,
+                  get_point:get_point,
+               },
+               cache: false,
+               dataType: 'json',
+               success: function(data) {
+                  if(data!=2){
+                     $('.get_point_message').show();
+                     $('.student_point_check').hide();
+                     $('.saved_point_show').text(get_point);
+
+                     if(student_ans==1){
+                        var st_ans_text = 'Average';
+                     }else if(student_ans==2){
+                        var st_ans_text = 'Good';
+                     }else if(student_ans==3){
+                        var st_ans_text = 'Excelent';
+                     }
+
+                     if(idea_point==1){
+                        var idea_ans_src = 'assets/images/average_img.png';
+                        var idea_ans_text = 'Average';
+                     }else if(idea_point==2){
+                        var idea_ans_src = 'assets/images/good_img.png';
+                        var idea_ans_text = 'Good';
+                     }else if(idea_point==3){
+                        var idea_ans_src = 'assets/images/excelent_img.png';
+                        var idea_ans_text = 'Excelent';
+                     }
+                     $('.tutor_point_ans_text').text(idea_ans_text); 
+                     $('.tutor_point_icon').attr('src',idea_ans_src); 
+                     $('.student_point_ans_text').text(st_ans_text);
+                  }else{
+                     alert("Submited Already !");
+                  }
+                   
+               }
+            });
+             
+         }else{
+           alert('Please Select an option !');
+         }
+      });
+
+      $(".ans_submit").on("click", function() {
+         var is_empty = 0;
+         var std_val = 0;
+         var std_check_val = 0;
+         $(".radio_ans").each(function() {
+            if ($(this).is(":checked")) {
+               is_empty = 1;
+               std_val = $(this).val();
+            }
+         });
+         if (is_empty == 0) {
+            alert("please checked one of them");
+            return false;
+         }
+
+         $('#title_auto_comment_ans').val(std_val);
+         // console.log(std_val);
+         $(".ans_submit_first_box").attr("style", "display:none");
+         $(".ans_submit_second_box").attr("style", "display:block");
+
+         $(".student_radio_ans").each(function() {
+            std_check_val = $(this).val();
+            if (std_val == std_check_val) {
+               $(this).attr("checked", true);
+
+            } 
+         });
+
+         var student_id = $('#student_view_idea_student_id').val();
+         var module_id = $('#student_view_idea_module_id').val();
+         var question_id = $('#student_view_idea_question_id').val();
+
+         $.ajax({
+            url: "Student/comment_story_title",
+            method: "POST",
+            enctype: 'multipart/form-data',
+            data: {student_id:student_id,module_id:module_id,question_id:question_id},
+            cache: false,
+            dataType: 'json',
+            success: function(data) {
+                  //console.log(data.story_title_mark);
+                  $('.teacher_radio_ans'+data.story_title_comment).attr('checked','checked');
+                  $('.your_point_show').show();
+                  
+                  if(std_val == data.story_title_comment){
+                     $('#title_auto_comment_get_point').val(data.story_title_mark);
+                     $('.total_point_count').html(data.story_title_mark);
+                     $('#story_checkbox_mark').val(data.story_title_mark);
+                  }
+                  else
+                  {
+                     $('.total_point_count').html(0);
+                     $('#story_checkbox_mark').val(0);    
+                  }
+            }
+         });
+
+         
+
+      });
+
+      $(".ans_submit_next").on("click", function() {
+         //alert("hello");
+         $('.your_point_show').hide();
+         $('.rainy_day_hide').hide();
+         $('.tutor_idea_text').show();
+         $('.common_answer_paragraph').hide();
+         $('.choose_word').attr("style", "display:block");
+         $('.ans_submit_miss_spelled').css({
+            "display": "block",
+            "min-height": "150px"
+         });
+         $(".ans_submit_first_box").attr("style", "display:none");
+         $(".ans_submit_second_box").attr("style", "display:none");
+      });
+
+   </script>

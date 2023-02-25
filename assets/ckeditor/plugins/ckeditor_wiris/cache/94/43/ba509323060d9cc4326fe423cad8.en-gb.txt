@@ -1,0 +1,1 @@
+{"result":{"text":"begin mathsize 20px style open parentheses a squared plus b squared plus c squared close parentheses end style"},"status":"ok"}

@@ -1,0 +1,1 @@
+{"result":{"text":"a squared plus bevelled 2 over 3"},"status":"ok"}

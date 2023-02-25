@@ -1,0 +1,8 @@
+When stdclass came
+rule: json encode decode apply
+
+2. $x = Array ( [0] => Array ( [id] => 14 [full_name] => Hy Hello [Username] => bfdbf [Email] => thhhj@gmail  ) );
+
+assign $x[0][full_name] 
+
+of use foreach

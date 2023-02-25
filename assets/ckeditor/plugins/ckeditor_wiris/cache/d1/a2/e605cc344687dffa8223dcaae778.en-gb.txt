@@ -1,0 +1,1 @@
+{"result":{"text":"begin mathsize 28px style 3 cross times square equals 9 cross times 6 end style"},"status":"ok"}

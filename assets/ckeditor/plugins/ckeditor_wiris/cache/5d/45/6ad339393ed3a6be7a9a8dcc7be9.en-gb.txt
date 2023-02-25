@@ -1,0 +1,1 @@
+{"result":{"text":"begin mathsize 24px style 45 space plus space square space equals space 57 end style"},"status":"ok"}

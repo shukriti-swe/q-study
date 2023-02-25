@@ -1,0 +1,1 @@
+{"result":{"text":"a squared plus-or-minus b squared"},"status":"ok"}

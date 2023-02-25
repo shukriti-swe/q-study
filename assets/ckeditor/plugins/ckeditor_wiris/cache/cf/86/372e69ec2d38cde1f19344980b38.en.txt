@@ -1,0 +1,1 @@
+{"result":{"text":"root index 1 of 2 space plus a subscript 4 plus b to the power of 4"},"status":"ok"}

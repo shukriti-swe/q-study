@@ -1,0 +1,1 @@
+{"result":{"text":"begin mathsize 16px style left square bracket 6 plus left curly bracket 12 cross times 5 cubed divided by 25 plus 4 minus 10 right curly bracket right square bracket end style"},"status":"ok"}

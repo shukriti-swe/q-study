@@ -1,0 +1,1 @@
+{"result":{"text":"left parenthesis a space plus space b right parenthesis to the power of 2 space end exponent space equals"},"status":"ok"}

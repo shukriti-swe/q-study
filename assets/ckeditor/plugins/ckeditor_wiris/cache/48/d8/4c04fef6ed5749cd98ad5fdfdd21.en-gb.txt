@@ -1,0 +1,1 @@
+{"result":{"text":"size 20px left square bracket size 20px 6 size 20px plus begin mathsize 20px style left curly bracket 12 cross times 125 divided by 25 plus 4 minus 10 right curly bracket end style size 20px right square bracket"},"status":"ok"}

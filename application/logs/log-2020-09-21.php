@@ -1,0 +1,147 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+
+ERROR - 2020-09-21 03:53:08 --> Severity: Warning --> Invalid argument supplied for foreach() /opt/bitnami/apache2/htdocs/application/views/dashboard_template/header.php 108
+ERROR - 2020-09-21 05:04:11 --> Severity: Warning --> Invalid argument supplied for foreach() /opt/bitnami/apache2/htdocs/application/views/dashboard_template/header.php 108
+ERROR - 2020-09-21 09:16:06 --> Severity: Warning --> Invalid argument supplied for foreach() /opt/bitnami/apache2/htdocs/application/views/dashboard_template/header.php 108
+ERROR - 2020-09-21 09:16:09 --> Severity: Warning --> Invalid argument supplied for foreach() /opt/bitnami/apache2/htdocs/application/views/dashboard_template/header.php 108
+ERROR - 2020-09-21 13:46:57 --> Severity: Warning --> Invalid argument supplied for foreach() /opt/bitnami/apache2/htdocs/application/views/dashboard_template/header.php 108
+ERROR - 2020-09-21 15:53:16 --> Severity: Warning --> Invalid argument supplied for foreach() /opt/bitnami/apache2/htdocs/application/views/dashboard_template/header.php 108
+ERROR - 2020-09-21 00:08:12 --> 404 Page Not Found: Es/s11
+ERROR - 2020-09-21 00:40:31 --> 404 Page Not Found: Robotstxt/index
+ERROR - 2020-09-21 00:58:33 --> 404 Page Not Found: Robotstxt/index
+ERROR - 2020-09-21 01:39:08 --> 404 Page Not Found: MjZL/index
+ERROR - 2020-09-21 01:42:15 --> 404 Page Not Found: Robotstxt/index
+ERROR - 2020-09-21 01:44:55 --> 404 Page Not Found: Config/getuser
+ERROR - 2020-09-21 01:46:59 --> 404 Page Not Found: Boaform/admin
+ERROR - 2020-09-21 02:01:51 --> 404 Page Not Found: Robotstxt/index
+ERROR - 2020-09-21 19:31:56 --> Severity: Warning --> Invalid argument supplied for foreach() /opt/bitnami/apache2/htdocs/application/views/dashboard_template/header.php 108
+ERROR - 2020-09-21 19:31:56 --> Severity: Warning --> Invalid argument supplied for foreach() /opt/bitnami/apache2/htdocs/application/views/dashboard_template/header.php 108
+ERROR - 2020-09-21 02:23:45 --> 404 Page Not Found: Wp-includes/wlwmanifest.xml
+ERROR - 2020-09-21 02:23:45 --> 404 Page Not Found: Xmlrpcphp/index
+ERROR - 2020-09-21 02:23:45 --> 404 Page Not Found: Blog/wp-includes
+ERROR - 2020-09-21 02:23:45 --> 404 Page Not Found: Web/wp-includes
+ERROR - 2020-09-21 02:23:45 --> 404 Page Not Found: Wordpress/wp-includes
+ERROR - 2020-09-21 02:23:45 --> 404 Page Not Found: Website/wp-includes
+ERROR - 2020-09-21 02:23:45 --> 404 Page Not Found: Wp/wp-includes
+ERROR - 2020-09-21 02:23:45 --> 404 Page Not Found: News/wp-includes
+ERROR - 2020-09-21 02:23:45 --> 404 Page Not Found: 2018/wp-includes
+ERROR - 2020-09-21 02:23:45 --> 404 Page Not Found: 2019/wp-includes
+ERROR - 2020-09-21 02:23:45 --> 404 Page Not Found: Shop/wp-includes
+ERROR - 2020-09-21 02:23:45 --> 404 Page Not Found: Wp1/wp-includes
+ERROR - 2020-09-21 02:23:45 --> 404 Page Not Found: Test/wp-includes
+ERROR - 2020-09-21 02:23:45 --> 404 Page Not Found: Media/wp-includes
+ERROR - 2020-09-21 02:23:45 --> 404 Page Not Found: Wp2/wp-includes
+ERROR - 2020-09-21 02:23:45 --> 404 Page Not Found: Site/wp-includes
+ERROR - 2020-09-21 02:23:45 --> 404 Page Not Found: Cms/wp-includes
+ERROR - 2020-09-21 02:23:45 --> 404 Page Not Found: Sito/wp-includes
+ERROR - 2020-09-21 02:32:26 --> 404 Page Not Found: GponForm/diag_Form
+ERROR - 2020-09-21 02:48:19 --> 404 Page Not Found: Robotstxt/index
+ERROR - 2020-09-21 02:59:01 --> 404 Page Not Found: Shell/index
+ERROR - 2020-09-21 03:15:19 --> 404 Page Not Found: Owa/auth
+ERROR - 2020-09-21 03:17:31 --> 404 Page Not Found: Owa/auth
+ERROR - 2020-09-21 03:28:40 --> 404 Page Not Found: Boaform/admin
+ERROR - 2020-09-21 03:52:48 --> 404 Page Not Found: Robotstxt/index
+ERROR - 2020-09-21 04:13:10 --> 404 Page Not Found: Shell/index
+ERROR - 2020-09-21 21:58:32 --> Severity: Notice --> Undefined index: HTTP_REFERER /opt/bitnami/apache2/htdocs/application/controllers/RegisterController.php 91
+ERROR - 2020-09-21 04:33:39 --> 404 Page Not Found: Robotstxt/index
+ERROR - 2020-09-21 04:33:40 --> 404 Page Not Found: Login/index
+ERROR - 2020-09-21 04:43:59 --> 404 Page Not Found: Boaform/admin
+ERROR - 2020-09-21 04:44:57 --> 404 Page Not Found: Robotstxt/index
+ERROR - 2020-09-21 04:57:31 --> 404 Page Not Found: Robotstxt/index
+ERROR - 2020-09-21 05:00:45 --> 404 Page Not Found: Env/index
+ERROR - 2020-09-21 05:02:09 --> 404 Page Not Found: Robotstxt/index
+ERROR - 2020-09-21 05:07:35 --> 404 Page Not Found: Robotstxt/index
+ERROR - 2020-09-21 05:11:14 --> 404 Page Not Found: Boaform/admin
+ERROR - 2020-09-21 22:42:30 --> Severity: Warning --> Invalid argument supplied for foreach() /opt/bitnami/apache2/htdocs/application/views/dashboard_template/header.php 108
+ERROR - 2020-09-21 05:19:30 --> 404 Page Not Found: Shell/index
+ERROR - 2020-09-21 05:41:42 --> 404 Page Not Found: Boaform/admin
+ERROR - 2020-09-21 06:02:19 --> 404 Page Not Found: Robotstxt/index
+ERROR - 2020-09-21 23:44:07 --> Severity: Warning --> Invalid argument supplied for foreach() /opt/bitnami/apache2/htdocs/application/views/dashboard_template/header.php 108
+ERROR - 2020-09-21 06:42:20 --> 404 Page Not Found: Boaform/admin
+ERROR - 2020-09-21 06:51:33 --> 404 Page Not Found: Robotstxt/index
+ERROR - 2020-09-21 07:09:13 --> 404 Page Not Found: Robotstxt/index
+ERROR - 2020-09-21 07:26:50 --> 404 Page Not Found: Goform/webLogin
+ERROR - 2020-09-21 07:45:45 --> 404 Page Not Found: Solr/admin
+ERROR - 2020-09-21 08:10:09 --> 404 Page Not Found: Robotstxt/index
+ERROR - 2020-09-21 08:46:26 --> 404 Page Not Found: Robotstxt/index
+ERROR - 2020-09-21 09:01:01 --> 404 Page Not Found: Hudson/index
+ERROR - 2020-09-21 09:20:10 --> 404 Page Not Found: Hudson/index
+ERROR - 2020-09-21 09:30:47 --> 404 Page Not Found: Robotstxt/index
+ERROR - 2020-09-21 09:34:31 --> 404 Page Not Found: Solr/admin
+ERROR - 2020-09-21 09:45:53 --> 404 Page Not Found: Robotstxt/index
+ERROR - 2020-09-21 09:45:53 --> 404 Page Not Found: Robotstxt/index
+ERROR - 2020-09-21 09:47:55 --> 404 Page Not Found: Robotstxt/index
+ERROR - 2020-09-21 10:40:16 --> 404 Page Not Found: Robotstxt/index
+ERROR - 2020-09-21 10:42:24 --> 404 Page Not Found: Robotstxt/index
+ERROR - 2020-09-21 10:50:35 --> 404 Page Not Found: Fcromtldmphtml/index
+ERROR - 2020-09-21 11:10:40 --> 404 Page Not Found: Config/getuser
+ERROR - 2020-09-21 11:17:37 --> 404 Page Not Found: GponForm/diag_Form
+ERROR - 2020-09-21 11:18:39 --> 404 Page Not Found: Api/jsonws
+ERROR - 2020-09-21 11:30:05 --> 404 Page Not Found: Robotstxt/index
+ERROR - 2020-09-21 11:32:01 --> 404 Page Not Found: GponForm/diag_Form
+ERROR - 2020-09-21 11:33:42 --> 404 Page Not Found: Env/index
+ERROR - 2020-09-21 12:13:21 --> 404 Page Not Found: Robotstxt/index
+ERROR - 2020-09-21 12:18:23 --> 404 Page Not Found: Robotstxt/index
+ERROR - 2020-09-21 12:37:55 --> 404 Page Not Found: Owa/auth
+ERROR - 2020-09-21 12:52:33 --> 404 Page Not Found: Robotstxt/index
+ERROR - 2020-09-21 12:52:33 --> 404 Page Not Found: Robotstxt/index
+ERROR - 2020-09-21 13:06:37 --> 404 Page Not Found: HNAP1/index
+ERROR - 2020-09-21 13:06:43 --> 404 Page Not Found: Robotstxt/index
+ERROR - 2020-09-21 13:30:59 --> 404 Page Not Found: Owa/auth
+ERROR - 2020-09-21 13:33:16 --> 404 Page Not Found: Robotstxt/index
+ERROR - 2020-09-21 13:58:29 --> 404 Page Not Found: Robotstxt/index
+ERROR - 2020-09-21 14:04:43 --> 404 Page Not Found: GponForm/diag_Form
+ERROR - 2020-09-21 14:24:08 --> 404 Page Not Found: Adstxt/index
+ERROR - 2020-09-21 14:26:45 --> 404 Page Not Found: Api/jsonws
+ERROR - 2020-09-21 14:42:24 --> 404 Page Not Found: Robotstxt/index
+ERROR - 2020-09-21 14:44:31 --> 404 Page Not Found: Robotstxt/index
+ERROR - 2020-09-21 14:53:30 --> 404 Page Not Found: Robotstxt/index
+ERROR - 2020-09-21 14:53:30 --> 404 Page Not Found: Robotstxt/index
+ERROR - 2020-09-21 15:01:32 --> 404 Page Not Found: Robotstxt/index
+ERROR - 2020-09-21 15:01:33 --> 404 Page Not Found: Robotstxt/index
+ERROR - 2020-09-21 15:44:39 --> 404 Page Not Found: Robotstxt/index
+ERROR - 2020-09-21 16:11:29 --> 404 Page Not Found: Robotstxt/index
+ERROR - 2020-09-21 16:18:21 --> 404 Page Not Found: Robotstxt/index
+ERROR - 2020-09-21 16:24:08 --> 404 Page Not Found: Adstxt/index
+ERROR - 2020-09-21 16:50:48 --> 404 Page Not Found: Wp-includes/qw.php
+ERROR - 2020-09-21 16:57:13 --> 404 Page Not Found: Shell/index
+ERROR - 2020-09-21 17:00:03 --> 404 Page Not Found: Robotstxt/index
+ERROR - 2020-09-21 17:37:40 --> 404 Page Not Found: Robotstxt/index
+ERROR - 2020-09-21 17:50:22 --> 404 Page Not Found: TelerikWebUIWebResourceaxd/index
+ERROR - 2020-09-21 17:56:25 --> 404 Page Not Found: Config/getuser
+ERROR - 2020-09-21 18:02:04 --> 404 Page Not Found: Robotstxt/index
+ERROR - 2020-09-21 18:08:00 --> 404 Page Not Found: Robotstxt/index
+ERROR - 2020-09-21 18:08:05 --> 404 Page Not Found: Env/index
+ERROR - 2020-09-21 18:25:49 --> 404 Page Not Found: Robotstxt/index
+ERROR - 2020-09-21 18:45:12 --> 404 Page Not Found: Boaform/admin
+ERROR - 2020-09-21 19:09:31 --> 404 Page Not Found: Robotstxt/index
+ERROR - 2020-09-21 19:55:30 --> 404 Page Not Found: Stalker_portal/c
+ERROR - 2020-09-21 19:55:31 --> 404 Page Not Found: Client_area/index
+ERROR - 2020-09-21 19:55:31 --> 404 Page Not Found: System_apiphp/index
+ERROR - 2020-09-21 19:55:32 --> 404 Page Not Found: Streaming/clients_live.php
+ERROR - 2020-09-21 19:55:32 --> 404 Page Not Found: Stalker_portal/c
+ERROR - 2020-09-21 19:55:32 --> 404 Page Not Found: Apiphp/index
+ERROR - 2020-09-21 19:55:33 --> 404 Page Not Found: Loginphp/index
+ERROR - 2020-09-21 19:55:33 --> 404 Page Not Found: Streaming/index
+ERROR - 2020-09-21 19:55:33 --> 404 Page Not Found: Streaming/clients_live.php
+ERROR - 2020-09-21 19:55:34 --> 404 Page Not Found: Streaming/oJV8cih2y.php
+ERROR - 2020-09-21 19:56:51 --> 404 Page Not Found: TelerikWebUIWebResourceaxd/index
+ERROR - 2020-09-21 20:18:26 --> 404 Page Not Found: Robotstxt/index
+ERROR - 2020-09-21 20:26:35 --> 404 Page Not Found: Robotstxt/index
+ERROR - 2020-09-21 20:57:19 --> 404 Page Not Found: TelerikWebUIWebResourceaxd/index
+ERROR - 2020-09-21 21:03:43 --> 404 Page Not Found: MjZL/index
+ERROR - 2020-09-21 21:30:08 --> 404 Page Not Found: Robotstxt/index
+ERROR - 2020-09-21 21:54:05 --> 404 Page Not Found: Shell/index
+ERROR - 2020-09-21 22:15:17 --> 404 Page Not Found: Robotstxt/index
+ERROR - 2020-09-21 22:20:51 --> 404 Page Not Found: Portal/redlion
+ERROR - 2020-09-21 22:24:41 --> 404 Page Not Found: Portal/redlion
+ERROR - 2020-09-21 22:26:31 --> 404 Page Not Found: Shell/index
+ERROR - 2020-09-21 22:42:22 --> 404 Page Not Found: Robotstxt/index
+ERROR - 2020-09-21 22:42:28 --> 404 Page Not Found: Robotstxt/index
+ERROR - 2020-09-21 22:43:13 --> 404 Page Not Found: Robotstxt/index
+ERROR - 2020-09-21 22:53:03 --> 404 Page Not Found: TelerikWebUIWebResourceaxd/index
+ERROR - 2020-09-21 23:00:20 --> 404 Page Not Found: Shell/index
+ERROR - 2020-09-21 23:13:13 --> 404 Page Not Found: Robotstxt/index
+ERROR - 2020-09-21 23:31:54 --> 404 Page Not Found: Robotstxt/index
+ERROR - 2020-09-21 23:47:54 --> 404 Page Not Found: Env/index
+ERROR - 2020-09-21 23:51:15 --> 404 Page Not Found: Robotstxt/index

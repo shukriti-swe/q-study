@@ -1,0 +1,1 @@
+{"result":{"text":"begin mathsize 28px style 9 cross times 10 equals _ _ equals _ _ cross times 9 end style"},"status":"ok"}

@@ -1,0 +1,1 @@
+{"result":{"text":"space E v a l u a t e space t h e space f o l l o w i n g s colon\na. space 37 squared\nb. space 1.2 squared\nc. square root of 81\nd. space square root of 155"},"status":"ok"}

@@ -1,0 +1,1 @@
+{"result":{"text":"begin mathsize 24px style open parentheses a minus b squared close parentheses end style"},"status":"ok"}

@@ -1,0 +1,1 @@
+{"result":{"text":"left square bracket 6 plus left curly bracket 12 cross times 125 divided by 25 plus 4 minus 10 right curly bracket right square bracket"},"status":"ok"}

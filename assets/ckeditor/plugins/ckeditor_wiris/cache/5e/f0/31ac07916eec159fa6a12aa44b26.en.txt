@@ -1,0 +1,1 @@
+{"result":{"text":"begin mathsize 28px style 28 plus square equals 47 end style"},"status":"ok"}
